@@ -5,22 +5,14 @@
     font-family: 'Open Sans', sans-serif;
 }
 
-.main {
-    display: flex;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-}
-
 .container {
     display: flex;
     margin-top: 100px;
     width: 100%;
-    height: 300px;
+    height: auto;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    justify-content: space-evenly;
+    justify-content: flex-start;
 }
 
 .logo {
@@ -29,40 +21,30 @@
     background-repeat: no-repeat;
     height: 200px;
     width: 400px;
-}
-
-@import url(https://fonts.googleapis.com/css?family=Montserrat);
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-@keyframes color-1 {
-    0% {
-        background-color: #eb73b9;
-    }
-    100% {
-        background-color: #17ead9;
-    }
-}
-::selection {
-    background: #6078ea;
-    color: white;
-    text-shadow: none;
+    margin-bottom: 20px;
 }
 
 .field-container {
     position: relative;
     display: flex;
     align-items: flex-start;
+    flex-direction: column;
     width: 500px;
     height: 40px;
+    margin-bottom: 40px;
     border: 1px solid black;
     border-radius: 20px;
     overflow: hidden;
+    transition: all 0.3s;
+}
+
+.field-area {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 0px;
+    width: 100%;
+    height: 40px;
 }
 
 .field {
@@ -71,17 +53,13 @@
     height: 40px;
     padding-left: 25px;
     background: white;
-    border-radius: 3px;
     text-align: left;
-    box-shadow: 0px 8px 15px rgba(75, 72, 72, 0.1);
-    transition: all 0.4s ease;
 }
 
 .icon-search {
     width: 30px;
     height: 30px;
     padding-right: 20px;
-    margin-top: 5px;
     background-color: white;
     background-image: url(https://www.wavve.com/img/icon-search-22.704db5c8.svg);
     background-repeat: no-repeat;
@@ -92,3 +70,40 @@
     outline: none;
 }
 
+.field:focus::placeholder {
+    color: transparent;
+}
+
+.expand_field_container {
+    height: 250px;
+}
+
+.search-log {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s;
+}
+
+.search-log:hover {
+    background-color: rgba(80, 80, 80, 0.3);
+}
+
+.search-icon {
+    background-image: url(../assets/history.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 15px;
+    width: 15px;
+    margin: 0px 10px;
+    margin-left: 20px;
+}
+
+.search-content {
+    width: 100%;
+    height: auto;
+    text-align: left;
+    margin: 0px 10px;
+    user-select: none;
+}

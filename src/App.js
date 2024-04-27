@@ -1,12 +1,15 @@
-import logo from "./logo.svg";
-import "./App.css";
+import React from 'react';
+import Login from './pages/Login';
+import UserProfile from './components/UserProfile';
 
-function App() {
+const App = () => {
     return (
         <div>
-            <h1>hello world!</h1>
+            <h1>Supabase Auth Example</h1>
+            <UserProfile />
+            <Login />
         </div>
     );
-}
+};
 
 export default App;

@@ -3,107 +3,239 @@
     padding: 0px;
     text-align: center;
     font-family: 'Open Sans', sans-serif;
+    border: 0px;
 }
 
-.container {
+/* header 부분 CSS */
+.header {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1001;
     display: flex;
-    margin-top: 100px;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    width: 85%;
+    height: 80px;
+}
+
+.logo-part {
+    width: 30%;
+    height: 100%;
+    background: rgb(239, 234, 234);
+    position: relative;
+}
+
+.search-part {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    background: rgb(250, 246, 246);
+}
+
+.login-part {
+    width: 20%;
+    height: 100%;
+    background: rgb(241, 239, 239);
+}
+
+/* logo-part css */
+.logo-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    width: 90%;
+    height: 70%;
+}
+
+.logo-picture {
+    background-image: url(../assets/logo.png);
+    background-size: 100% 100%;
+    width:  30%;
+    height: 100%;
+}
+
+.logo-letter {
+    background-image: url(../assets/logo2.png);
+    background-size: 100% 100%;
+    width: 60%;
+    height: 100%;
+}
+
+/* search-part css */
+.search-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 60%;
+
+}
+
+.search-area {
     width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 5px;
+    background: rgb(205, 191, 191);
+}
+
+.search-icon {
+    background-image: url(../assets/search.png);
+    background-size: 100% 100%;
+    margin-left: 10px;
+    width: 40px;
+    height: 40px;
+}
+
+.search-field {
+    width: 80%;
+    height: 100%;
+    background: transparent;
+    padding-left: 5px;
+    text-align: left;
+    font-size: 22px;
+}
+
+.search-field:focus {
+    outline: none;
+}
+
+.search-field:focus::placeholder {
+    color: transparent;
+}
+
+/* login-part css */
+.profile-container {
+    position: relative;
+    width: 80%;
+    height: 100%;
+}
+
+.profile {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url(../assets/profile.png);
+    background-size: 100% 100%;
+    width: 40px;
+    height: 40px;
+}
+
+.login-container {
+    display: none;
+}
+
+.header-hidden {
+    z-index: 1000;
+    margin-top: 20px;
+    width: 85%;
+    height: 80px;
+}
+
+/* content css */
+.content {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    position: relative;
+    background-color: white;
+    width: 85%;
     height: auto;
+    border: 1px solid white;
+}
+
+.select-tag {
+    position: relative;
+    width: 95%;
+    height: 40px;
+    margin-top: 30px;
+    box-sizing: border-box;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    background: rgb(245, 237, 237);
+}
+
+/* movie-list css */
+.movie-list {
+    display: grid;
+    width: 90%;
+    grid-template-columns: repeat(auto-fill, minmax(20%, auto));
+    row-gap: 10px;
+}
+
+.movie-block {
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 180px;
+    height: 292px;
+    box-sizing: border-box;
+    border: 1px solid rgb(0, 0, 0);
+    background: rgb(245, 237, 237);
+}
+
+.movie-content {
+    display: flex;
+    width: 160px;
+    height: 100%;
     flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+
+.movie-poster {
+    border-radius: 5px;
+    width: 160px;
+    height: 239px;
+    background: rgb(221, 215, 229);
+}
+
+.movie-info {
+    width: 100%;
+    height: 30px;
+    display: flex;
     align-items: center;
     justify-content: flex-start;
 }
 
-.logo {
-    background-image: url(../assets/logo.png);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    height: 200px;
-    width: 400px;
-    margin-bottom: 20px;
-}
-
-.field-container {
-    position: relative;
+.movie-rate {
     display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-    width: 500px;
-    height: 40px;
-    margin-bottom: 40px;
+    align-items: center;
     border: 1px solid black;
-    border-radius: 20px;
-    overflow: hidden;
-    transition: all 0.3s;
+    margin: 0px 0px;
 }
 
-.field-area {
-    position: relative;
-    display: flex;
-    align-items: center;
-    border: 0px;
-    width: 100%;
-    height: 40px;
-}
-
-.field {
-    border: 0;
-    width: 100%;
-    height: 40px;
-    padding-left: 25px;
-    background: white;
-    text-align: left;
-}
-
-.icon-search {
-    width: 30px;
-    height: 30px;
-    padding-right: 20px;
-    background-color: white;
-    background-image: url(https://www.wavve.com/img/icon-search-22.704db5c8.svg);
-    background-repeat: no-repeat;
-    background-size: 30px 30px;
-}
-
-.field:focus {
-    outline: none;
-}
-
-.field:focus::placeholder {
-    color: transparent;
-}
-
-.expand_field_container {
-    height: 250px;
-}
-
-.search-log {
-    width: 100%;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    transition: all 0.3s;
-}
-
-.search-log:hover {
-    background-color: rgba(80, 80, 80, 0.3);
-}
-
-.search-icon {
-    background-image: url(../assets/history.png);
+.movie-star {
+    background-image: url(../assets/star.png);
     background-size: 100% 100%;
-    background-repeat: no-repeat;
-    height: 15px;
     width: 15px;
-    margin: 0px 10px;
-    margin-left: 20px;
+    height: 15px;
+    margin-left: 3px;
+    margin-right: 0px;
 }
 
-.search-content {
-    width: 100%;
-    height: auto;
+.movie-num {
+    margin-left: 5px;
+    margin-right: 3px;
     text-align: left;
-    margin: 0px 10px;
-    user-select: none;
+}
+
+.movie-title {
+    display: inline-block;
+    width: 110px;
+    height: 30px;
+    line-height: 30px;
+    margin-left: 10px;
+    margin-right: 0px;
+    text-align: left;
+    overflow: hidden;
+    white-space: normal;
+    text-overflow: ellipsis;
 }

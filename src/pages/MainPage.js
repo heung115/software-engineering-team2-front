@@ -1,68 +1,68 @@
-import ServerAPI from '../components/ServerAPI';
 import '../styles/MainPage.css';
 import { Component } from 'react';
+import { SearchTag } from '../components/SearchTag';
 
 class MainPage extends Component {
-    state = {
-        haveLog: false,
-        focusOn: false,
-        searchLog: [],
-    };
-
-    focusOnSearch = async () => {
-        try {
-            if (!this.state.haveLog) {
-                const result = await ServerAPI.get(
-                    'http://localhost:8000/hello',
-                );
-
-                console.log(result.data['search']);
-                this.setState({
-                    haveLog: true,
-                    focusOn: true,
-                    searchLog: result.data['search'],
-                });
-            } else {
-                this.setState({ focusOn: true });
-            }
-        } catch (error) {
-            console.log(error);
-            this.setState({ focusOn: false, searchLog: [] });
-        }
-    };
 
     render() {
         return (
             <div className="main">
-                <div className="login">login</div>
-
-                <div className="container">
-                    <div className="logo"></div>
-                    <fieldset
-                        className={
-                            this.state.focusOn
-                                ? 'field-container expand_field_container'
-                                : 'field-container'
-                        }
-                    >
-                        <div className="field-area">
-                            <input
-                                className="field"
-                                type="text"
-                                placeholder="Search..."
-                                onFocus={this.focusOnSearch}
-                                onBlur={() => this.setState({ focusOn: false })}
-                            />
-                            <div className="icon-search"></div>
+                <div className="header">
+                    <div className="logo-part">
+                        <div className="logo-container">
+                            <div className="logo-picture"></div>
+                            <div className="logo-letter"></div>
                         </div>
+                    </div>
 
-                        {this.state.searchLog.map((content, idx) => (
-                            <div className='search-log'>
-                                <div className='search-icon'></div>
-                                <div className="search-content">{content}</div>
+                    <div className="search-part">
+                        <fieldset className="search-container">
+                            <div className="search-area">
+                                <div className="search-icon"></div>
+                                <input
+                                    className="search-field"
+                                    type="text"
+                                    placeholder="Search..."
+                                    onFocus={() => console.log('focus on')}
+                                    onBlur={() => console.log('focus off')}
+                                />
                             </div>
-                        ))}
-                    </fieldset>
+
+                            {/* {this.state.searchLog.map((content, idx) => (
+                                <div className="search-log">
+                                    <div className="search-icon"></div>
+                                    <div className="search-content">
+                                        {content}
+                                    </div>
+                                </div>
+                            ))} */}
+                        </fieldset>
+                    </div>
+
+                    <div className="login-part">
+                        <div className="profile-container">
+                            <div className="profile"></div>
+                            <div className="login-container"></div>
+                        </div>
+                    </div>
+                </div>
+                <div className="header-hidden"></div>
+                <div className="content">
+                    {/* <div className='select-tag'></div> */}
+                    <div className="movie-list">
+                        <div className="movie-block">
+                            <div className="movie-content">
+                                <div className="movie-poster"></div>
+                                <div className="movie-info">
+                                    <div className='movie-rate'>
+                                        <div className="movie-star"></div>
+                                        <p className="movie-num">9.4</p>
+                                    </div>
+                                    <p className="movie-title">파묘</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         );

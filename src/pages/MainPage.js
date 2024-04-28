@@ -16,27 +16,7 @@ class MainPage extends Component {
                     </div>
 
                     <div className="search-part">
-                        <fieldset className="search-container">
-                            <div className="search-area">
-                                <div className="search-icon"></div>
-                                <input
-                                    className="search-field"
-                                    type="text"
-                                    placeholder="Search..."
-                                    onFocus={() => console.log('focus on')}
-                                    onBlur={() => console.log('focus off')}
-                                />
-                            </div>
-
-                            {/* {this.state.searchLog.map((content, idx) => (
-                                <div className="search-log">
-                                    <div className="search-icon"></div>
-                                    <div className="search-content">
-                                        {content}
-                                    </div>
-                                </div>
-                            ))} */}
-                        </fieldset>
+                        <SearchTag />
                     </div>
 
                     <div className="login-part">
@@ -50,6 +30,138 @@ class MainPage extends Component {
                 <div className="content">
                     {/* <div className='select-tag'></div> */}
                     <div className="movie-list">
+                        <div className="movie-block">
+                            <div className="movie-content">
+                                <div className="movie-poster"></div>
+                                <div className="movie-info">
+                                    <div className='movie-rate'>
+                                        <div className="movie-star"></div>
+                                        <p className="movie-num">9.4</p>
+                                    </div>
+                                    <p className="movie-title">파묘</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="movie-block">
+                            <div className="movie-content">
+                                <div className="movie-poster"></div>
+                                <div className="movie-info">
+                                    <div className='movie-rate'>
+                                        <div className="movie-star"></div>
+                                        <p className="movie-num">9.4</p>
+                                    </div>
+                                    <p className="movie-title">파묘</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="movie-block">
+                            <div className="movie-content">
+                                <div className="movie-poster"></div>
+                                <div className="movie-info">
+                                    <div className='movie-rate'>
+                                        <div className="movie-star"></div>
+                                        <p className="movie-num">9.4</p>
+                                    </div>
+                                    <p className="movie-title">파묘</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="movie-block">
+                            <div className="movie-content">
+                                <div className="movie-poster"></div>
+                                <div className="movie-info">
+                                    <div className='movie-rate'>
+                                        <div className="movie-star"></div>
+                                        <p className="movie-num">9.4</p>
+                                    </div>
+                                    <p className="movie-title">파묘</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="movie-block">
+                            <div className="movie-content">
+                                <div className="movie-poster"></div>
+                                <div className="movie-info">
+                                    <div className='movie-rate'>
+                                        <div className="movie-star"></div>
+                                        <p className="movie-num">9.4</p>
+                                    </div>
+                                    <p className="movie-title">파묘</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="movie-block">
+                            <div className="movie-content">
+                                <div className="movie-poster"></div>
+                                <div className="movie-info">
+                                    <div className='movie-rate'>
+                                        <div className="movie-star"></div>
+                                        <p className="movie-num">9.4</p>
+                                    </div>
+                                    <p className="movie-title">파묘</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="movie-block">
+                            <div className="movie-content">
+                                <div className="movie-poster"></div>
+                                <div className="movie-info">
+                                    <div className='movie-rate'>
+                                        <div className="movie-star"></div>
+                                        <p className="movie-num">9.4</p>
+                                    </div>
+                                    <p className="movie-title">파묘</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="movie-block">
+                            <div className="movie-content">
+                                <div className="movie-poster"></div>
+                                <div className="movie-info">
+                                    <div className='movie-rate'>
+                                        <div className="movie-star"></div>
+                                        <p className="movie-num">9.4</p>
+                                    </div>
+                                    <p className="movie-title">파묘</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="movie-block">
+                            <div className="movie-content">
+                                <div className="movie-poster"></div>
+                                <div className="movie-info">
+                                    <div className='movie-rate'>
+                                        <div className="movie-star"></div>
+                                        <p className="movie-num">9.4</p>
+                                    </div>
+                                    <p className="movie-title">파묘</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="movie-block">
+                            <div className="movie-content">
+                                <div className="movie-poster"></div>
+                                <div className="movie-info">
+                                    <div className='movie-rate'>
+                                        <div className="movie-star"></div>
+                                        <p className="movie-num">9.4</p>
+                                    </div>
+                                    <p className="movie-title">파묘</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="movie-block">
+                            <div className="movie-content">
+                                <div className="movie-poster"></div>
+                                <div className="movie-info">
+                                    <div className='movie-rate'>
+                                        <div className="movie-star"></div>
+                                        <p className="movie-num">9.4</p>
+                                    </div>
+                                    <p className="movie-title">파묘</p>
+                                </div>
+                            </div>
+                        </div>
                         <div className="movie-block">
                             <div className="movie-content">
                                 <div className="movie-poster"></div>

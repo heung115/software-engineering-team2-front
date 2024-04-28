@@ -1,4 +1,4 @@
-import '../styles/MainPage.css'
+import '../styles/MainPage.css';
 import ServerAPI from './ServerAPI';
 import { Component } from 'react';
 
@@ -12,13 +12,11 @@ class SearchTag extends Component {
     focusOnSearch = async () => {
         try {
             if (this.state.haveLog) {
-                this.setState({focusOn: true});
+                this.setState({ focusOn: true });
             }
 
-            const result = await ServerAPI.get(
-                'http://localhost:8000/hello',
-            );
-            
+            const result = await ServerAPI.get('http://localhost:8000/hello');
+
             if (result.data['search'].length >= 1) {
                 this.setState({
                     haveLog: true,
@@ -32,43 +30,55 @@ class SearchTag extends Component {
             console.log(error);
             this.setState({ focusOn: false, searchLog: [] });
         }
-    }
+    };
 
-    clickSearch = () => {this.setState({ focusOn : true })}
-    blurSearch = () => {this.setState({ focusOn : false })}
-    getSearchLog = () => {this.state.haveLog ? this.state.searchLog : []}
+    clickSearch = () => {
+        this.setState({ focusOn: true });
+    };
+    blurSearch = () => {
+        this.setState({ focusOn: false });
+    };
 
-    // {this.state.searchLog.map((content, idx) => (
-    //     <div className="search-log">
-    //         <div className="search-icon"></div>
-    //         <div className="search-content">{content}</div>
-    //     </div>
-    // ))}
     render() {
         return (
-            <div></div>
+            <fieldset className="search-container">
+                <div
+                    className={
+                        this.state.focusOn
+                            ? 'search-area search-area-expand'
+                            : 'search-area'
+                    }
+                >
+                    <div className="search-window">
+                        <div className="search-icon"></div>
+                        <input
+                            className="search-field"
+                            type="text"
+                            placeholder="Search..."
+                            // onFocus={() => this.focusOnSearch()}
+                            onFocus={() => this.setState({ focusOn: true })}
+                            onBlur={() => this.setState({ focusOn: false })}
+                        />
+                    </div>
+
+                    <div className="search-log">
+                        <div className="search-line">
+                            <div className="search-log-icon"></div>
+                            <div className="search-log-content">bbb</div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* {this.state.searchLog.map((content, idx) => (
+                    
+                ))} */}
+            </fieldset>
         );
     }
 }
 
-export {SearchTag};
+export { SearchTag };
 
-// class SearchTag extends Component {
-
-    
-
-//     focusOnSearch = async () => {
-        
-//     };
-
-//     render() {
-//         return (
-//             <fieldset
-//                 className={
-//                     this.state.focusOn
-//                         ? 'field-container expand_field_container'
-//                         : 'field-container'
-//                 }
 //             >
 //                 <div className="field-area">
 //                     <input
@@ -81,7 +91,6 @@ export {SearchTag};
 //                     <div className="icon-search"></div>
 //                 </div>
 
-               
 //             </fieldset>
 //         );
 //     }

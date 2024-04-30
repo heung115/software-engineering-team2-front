@@ -3,7 +3,9 @@ import Login from './pages/Login';
 import SignupForm from './pages/SignupForm';
 import Modal from './components/Modal';
 import UserProfile from './components/UserProfile';
+import { MainPage } from "./pages/MainPage";
 import './App.css';
+
 const App = () => {
     const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
     const [isSignupModalOpen, setIsSignupModalOpen] = useState(false);
@@ -12,7 +14,6 @@ const App = () => {
     const closeLoginModal = () => setIsLoginModalOpen(false);
     const openSignupModal = () => setIsSignupModalOpen(true);
     const closeSignupModal = () => setIsSignupModalOpen(false);
-
     return (
         <div className="App">
             <h1>Supabase Auth Example</h1>
@@ -28,6 +29,7 @@ const App = () => {
             <Modal isOpen={isSignupModalOpen} onClose={closeSignupModal}>
                 <SignupForm closeModal={closeSignupModal} />
             </Modal>
+            <MainPage />
         </div>
     );
 };

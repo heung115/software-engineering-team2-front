@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { supabase } from '../services/Supabase';
-import '../assets/LoginForm.css';
+import '../styles/LoginForm.css';
 function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');

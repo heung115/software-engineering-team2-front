@@ -16,7 +16,7 @@ const App = () => {
     const closeSignupModal = () => setIsSignupModalOpen(false);
     return (
         <div className="App">
-            <h1>Supabase Auth Example</h1>
+            {/* <h1>Supabase Auth Example</h1>
             <UserProfile />
             <br></br>
             <div className="button-container">
@@ -28,7 +28,7 @@ const App = () => {
             </Modal>
             <Modal isOpen={isSignupModalOpen} onClose={closeSignupModal}>
                 <SignupForm closeModal={closeSignupModal} />
-            </Modal>
+            </Modal> */}
             <MainPage />
         </div>
     );

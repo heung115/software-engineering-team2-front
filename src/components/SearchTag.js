@@ -1,4 +1,4 @@
-import '../styles/MainPage.css';
+import '../styles/SearchTag.css';
 import ServerAPI from '../services/ServerAPI';
 import { Component } from 'react';
 
@@ -41,38 +41,40 @@ class SearchTag extends Component {
 
     render() {
         return (
-            <fieldset className="search-container">
-                <div
-                    className={
-                        this.state.focusOn
-                            ? 'search-area search-area-expand'
-                            : 'search-area'
-                    }
-                >
-                    <div className="search-window">
-                        <div className="search-icon"></div>
-                        <input
-                            className="search-field"
-                            type="text"
-                            placeholder="Search..."
-                            // onFocus={() => this.focusOnSearch()}
-                            onFocus={() => this.setState({ focusOn: true })}
-                            onBlur={() => this.setState({ focusOn: false })}
-                        />
-                    </div>
+            <div className="search-part">
+                <fieldset className="search-container">
+                    <div
+                        className={
+                            this.state.focusOn
+                                ? 'search-area search-area-expand'
+                                : 'search-area'
+                        }
+                    >
+                        <div className="search-window">
+                            <div className="search-icon"></div>
+                            <input
+                                className="search-field"
+                                type="text"
+                                placeholder="Search..."
+                                // onFocus={() => this.focusOnSearch()}
+                                onFocus={() => this.setState({ focusOn: true })}
+                                onBlur={() => this.setState({ focusOn: false })}
+                            />
+                        </div>
 
-                    <div className="search-log">
-                        <div className="search-line">
-                            <div className="search-log-icon"></div>
-                            <div className="search-log-content">bbb</div>
+                        <div className="search-log">
+                            <div className="search-line">
+                                <div className="search-log-icon"></div>
+                                <div className="search-log-content">bbb</div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                {/* {this.state.searchLog.map((content, idx) => (
+                    {/* {this.state.searchLog.map((content, idx) => (
                     
                 ))} */}
-            </fieldset>
+                </fieldset>
+            </div>
         );
     }
 }

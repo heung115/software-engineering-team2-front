@@ -1,6 +1,7 @@
 import '../styles/MainPage.css';
 import { Component } from 'react';
 import { SearchTag } from '../components/SearchTag';
+import { LoginTag } from '../components/LoginTag';
 
 class MainPage extends Component {
 
@@ -19,12 +20,7 @@ class MainPage extends Component {
                         <SearchTag />
                     </div>
 
-                    <div className="login-part">
-                        <div className="profile-container">
-                            <div className="profile"></div>
-                            <div className="login-container"></div>
-                        </div>
-                    </div>
+                    <LoginTag />
                 </div>
                 <div className="header-hidden"></div>
                 <div className="content">

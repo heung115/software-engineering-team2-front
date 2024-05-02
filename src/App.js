@@ -6,6 +6,8 @@ import UserProfile from './components/UserProfile';
 import { MainPage } from "./pages/MainPage";
 import './App.css';
 
+
+
 const App = () => {
     const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
     const [isSignupModalOpen, setIsSignupModalOpen] = useState(false);

@@ -4,6 +4,7 @@ import SignupForm from './pages/SignupForm';
 import Modal from './components/Modal';
 import UserProfile from './components/UserProfile';
 import { MainPage } from "./pages/MainPage";
+import { HeaderTag } from './components/HeaderTag';
 import './App.css';
 
 
@@ -31,6 +32,7 @@ const App = () => {
             <Modal isOpen={isSignupModalOpen} onClose={closeSignupModal}>
                 <SignupForm closeModal={closeSignupModal} />
             </Modal> */}
+            {/* <HeaderTag /> */}
             <MainPage />
         </div>
     );

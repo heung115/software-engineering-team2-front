@@ -1,6 +1,12 @@
 .content {
+    position: relative;
     width: 1000px;
     height: 440px;
     margin: 0 auto;
     border: 1px solid black;
+    overflow: hidden;
+}
+
+.content > * {
+    position: absolute;
 }

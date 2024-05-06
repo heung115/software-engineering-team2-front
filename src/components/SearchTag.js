@@ -42,38 +42,36 @@ class SearchTag extends Component {
     render() {
         return (
             <div className="search-part">
-                <fieldset className="search-container">
-                    <div
-                        className={
-                            this.state.focusOn
-                                ? 'search-area search-area-expand'
-                                : 'search-area'
-                        }
-                    >
-                        <div className="search-window">
-                            <div className="search-icon"></div>
-                            <input
-                                className="search-field"
-                                type="text"
-                                placeholder="Search..."
-                                // onFocus={() => this.focusOnSearch()}
-                                onFocus={() => this.setState({ focusOn: true })}
-                                onBlur={() => this.setState({ focusOn: false })}
-                            />
-                        </div>
-
-                        <div className="search-log">
-                            <div className="search-line">
-                                <div className="search-log-icon"></div>
-                                <div className="search-log-content">bbb</div>
-                            </div>
-                        </div>
+                <div
+                    className={
+                        this.state.focusOn
+                            ? 'search-area search-area-expand'
+                            : 'search-area'
+                    }
+                >
+                    <div className="search-window">
+                        <div className="search-icon"></div>
+                        <input
+                            className="search-field"
+                            type="text"
+                            placeholder="Search..."
+                            // onFocus={() => this.focusOnSearch()}
+                            onFocus={() => this.setState({ focusOn: true })}
+                            onBlur={() => this.setState({ focusOn: false })}
+                        />
                     </div>
 
-                    {/* {this.state.searchLog.map((content, idx) => (
+                    <div className="search-log">
+                        <div className="search-line">
+                            <div className="search-log-icon"></div>
+                            <div className="search-log-content">bbb</div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* {this.state.searchLog.map((content, idx) => (
                     
                 ))} */}
-                </fieldset>
             </div>
         );
     }

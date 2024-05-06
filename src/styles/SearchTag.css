@@ -1,20 +1,4 @@
-.search-part {
-    position: relative;
-    width: 50%;
-    height: 100%;
-    background: rgb(250, 246, 246);
-}
-
 /* search-part css */
-.search-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90%;
-    height: 60%;
-}
-
 .search-area {
     width: 100%;
     height: 100%;
@@ -30,7 +14,7 @@
 
 .search-window {
     width: 100%;
-    height: 48px;
+    height: 50px;
     display: flex;
     align-items: center;
 }
@@ -45,11 +29,12 @@
 
 .search-field {
     width: 80%;
-    height: 100%;
+    height: 48px;
     background: transparent;
-    padding-left: 5px;
+    margin-left: 20px;
     text-align: left;
     font-size: 22px;
+    border: 0px;
 }
 
 .search-field:focus {
@@ -84,8 +69,8 @@
 .search-log-icon {
     background-image: url(../assets/history.png);
     background-size: 100% 100%;
-    width: 23px;
-    height: 20px;
+    width: auto;
+    height: 60%;
     margin: 10px 10px;
 }
 

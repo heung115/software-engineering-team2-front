@@ -49,11 +49,16 @@
     overflow: hidden;
 }
 
-.main-movie-poster {
+.main-movie-poster-container {
     right: 5px;
     border: 1px solid red;
     width: 500px;
     height: 100%;
+}
+
+.main-movie-poster {
+    height: 100%;
+    width: auto;
 }
 
 .main-movie-container {
@@ -90,9 +95,11 @@
 }
 
 .main-bot {
-    bottom: 0px;
+    display: flex;
+    flex-wrap: wrap;
     width: 100%;
     height: 180px;
     bottom: 4px;
     border: 1px solid black;
+    overflow: hidden;
 }

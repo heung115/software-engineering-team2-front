@@ -21,6 +21,10 @@
     border: 1px solid red;
 }
 
+.select-tag {
+    background-color: aqua;
+}
+
 .tag-div:last-child {
     margin-bottom: 20px;
 }

@@ -6,7 +6,7 @@ import { MainContentTag } from './MainContentTag';
 
 const ContentTag = () => {
 
-    const [nowTag, setNowTag] = useState("Recommend");
+    const [nowTag, setNowTag] = useState("Recommand");
 
     const changeTag = (name) => {
         setNowTag(name);
@@ -14,8 +14,8 @@ const ContentTag = () => {
 
     return (
         <div className='content'>
-            <SidebarTag nowTag={nowTag} setTag={changeTag} />
-            <MainContentTag nowTag={nowTag} setTag={changeTag} />
+            <SidebarTag nowTag={nowTag} changeTag={changeTag} />
+            <MainContentTag nowTag={nowTag} />
         </div>
     )
 }

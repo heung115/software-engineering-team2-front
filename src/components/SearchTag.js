@@ -1,5 +1,5 @@
-import '../styles/MainPage.css';
-import ServerAPI from './ServerAPI';
+import '../styles/SearchTag.css';
+import ServerAPI from '../services/ServerAPI';
 import { Component } from 'react';
 
 class SearchTag extends Component {
@@ -41,7 +41,7 @@ class SearchTag extends Component {
 
     render() {
         return (
-            <fieldset className="search-container">
+            <div className="search-part">
                 <div
                     className={
                         this.state.focusOn
@@ -72,7 +72,7 @@ class SearchTag extends Component {
                 {/* {this.state.searchLog.map((content, idx) => (
                     
                 ))} */}
-            </fieldset>
+            </div>
         );
     }
 }

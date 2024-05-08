@@ -1,13 +1,15 @@
-import '../styles/MainPage.css';
 import { Component } from 'react';
-import { SearchTag } from '../components/SearchTag';
+import { HeaderTag } from '../components/HeaderTag';
+import { ContentTag } from '../components/ContentTag';
 
 class MainPage extends Component {
 
     render() {
         return (
             <div className="main">
-                <div className="header">
+                <HeaderTag />
+                <ContentTag />
+                {/* <div className="header">
                     <div className="logo-part">
                         <div className="logo-container">
                             <div className="logo-picture"></div>
@@ -19,16 +21,11 @@ class MainPage extends Component {
                         <SearchTag />
                     </div>
 
-                    <div className="login-part">
-                        <div className="profile-container">
-                            <div className="profile"></div>
-                            <div className="login-container"></div>
-                        </div>
-                    </div>
+                    <LoginTag />
                 </div>
                 <div className="header-hidden"></div>
                 <div className="content">
-                    {/* <div className='select-tag'></div> */}
+                    
                     <div className="movie-list">
                         <div className="movie-block">
                             <div className="movie-content">
@@ -175,7 +172,7 @@ class MainPage extends Component {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
         );
     }

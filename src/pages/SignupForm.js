@@ -1,6 +1,6 @@
 // SignupForm.js
 import React, { useState } from 'react';
-import '../assets/SignupForm.css';
+import '../styles/SignupForm.css';
 import useSignup from '../hooks/useSignup';
 
 function SignupForm({ closeModal }) {

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { SessionContext } from './SessionProvider';
+import { SessionContext } from '../services/SessionProvider';
 function UserProfile() {
     const session = useContext(SessionContext); // 세션 데이터를 가져옴
 

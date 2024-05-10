@@ -36,7 +36,38 @@ function useSignup() {
         }
     };
 
-    return { signup, isLoading, error, isSuccess };
+    const validateForm = (email, password, confirmPassword, setErrors) => {
+        let isValid = true;
+        const newErrors = {};
+        
+        console.log(email, password, confirmPassword)
+
+        if (!email) {
+            isValid = false;
+            newErrors.email = 'Email is required';
+        } else if (!/\S+@\S+\.\S+/.test(email)) {
+            isValid = false;
+            newErrors.email = 'Email address is invalid';
+        }
+
+        if (!password) {
+            isValid = false;
+            newErrors.password = 'Password is required';
+        } else if (password.length < 6) {
+            isValid = false;
+            newErrors.password = 'Password must be at least 6 characters long';
+        }
+
+        if (password !== confirmPassword) {
+            isValid = false;
+            newErrors.confirmPassword = 'Passwords do not match';
+        }
+
+        setErrors(newErrors);
+        return isValid;
+    }
+
+    return { signup, validateForm, isLoading, error, isSuccess };
 }
 
 export default useSignup;

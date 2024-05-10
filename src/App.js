@@ -1,20 +1,15 @@
 import React, { useState } from 'react';
-import Login from './pages/Login';
-import SignupForm from './pages/SignupForm';
-import Modal from './components/Modal';
-import UserProfile from './components/UserProfile';
 import { MainPage } from './pages/MainPage';
-import { HeaderTag } from './components/navigation-bar/HeaderTag';
 import './App.css';
 
 const App = () => {
-    const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
-    const [isSignupModalOpen, setIsSignupModalOpen] = useState(false);
+    // const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+    // const [isSignupModalOpen, setIsSignupModalOpen] = useState(false);
 
-    const openLoginModal = () => setIsLoginModalOpen(true);
-    const closeLoginModal = () => setIsLoginModalOpen(false);
-    const openSignupModal = () => setIsSignupModalOpen(true);
-    const closeSignupModal = () => setIsSignupModalOpen(false);
+    // const openLoginModal = () => setIsLoginModalOpen(true);
+    // const closeLoginModal = () => setIsLoginModalOpen(false);
+    // const openSignupModal = () => setIsSignupModalOpen(true);
+    // const closeSignupModal = () => setIsSignupModalOpen(false);
     return (
         <div className="App">
             {/* <h1>Supabase Auth Example</h1>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import '../styles/SidebarTag.css';
 import ServerAPI from '../services/ServerAPI';
 
-function SidebarTag({nowTag, changeTag}) {
+function SidebarTag({ nowTag, changeTag }) {
     const [tags, setTags] = useState(['Recommand']);
 
     useEffect(() => {
@@ -16,7 +16,7 @@ function SidebarTag({nowTag, changeTag}) {
 
             // 가져온 데이터를 상태에 업데이트합니다.
             const res = tags.concat(response.data['tags']);
-            console.log(res)
+            console.log(res);
             setTags(res);
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -30,7 +30,9 @@ function SidebarTag({nowTag, changeTag}) {
                     className={
                         item == nowTag ? 'tag-div select-tag' : 'tag-div'
                     }
-                    onClick={(e) => {changeTag(item)}}
+                    onClick={(e) => {
+                        changeTag(item);
+                    }}
                 >
                     {item}
                 </div>

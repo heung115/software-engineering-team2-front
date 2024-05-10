@@ -1,23 +1,44 @@
 import React, { useState } from 'react';
-import '../styles/ContentTag.css';
-import { SidebarTag } from './SidebarTag';
-import { MainContentTag } from './MainContentTag';
+import styled from 'styled-components';
+import { SidebarTag } from './side-bar/SidebarTag';
+import { MainContentTag } from './main-content/MainContentTag';
 
+const GridContainer = styled.div`
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-columns: 212px repeat(7, 1fr);
+
+    grid-template-rows: 800px;
+    gap: 20px;
+    padding: 0;
+    border: 1px solid red;
+`;
+const StyledSidebar = styled.div`
+    border: 1px solid black;
+    grid-column: 1 / 2;
+`;
+
+const StyledContent = styled.div`
+    grid-column: 2 / 9;
+`;
 
 const ContentTag = () => {
-
-    const [nowTag, setNowTag] = useState("Recommand");
+    const [nowTag, setNowTag] = useState('Recommand');
 
     const changeTag = (name) => {
         setNowTag(name);
-    }
+    };
 
     return (
-        <div className='content'>
-            <SidebarTag nowTag={nowTag} changeTag={changeTag} />
-            <MainContentTag nowTag={nowTag} />
-        </div>
-    )
-}
+        <GridContainer>
+            <StyledSidebar>
+                <SidebarTag nowTag={nowTag} changeTag={changeTag} />
+            </StyledSidebar>
+            <StyledContent>
+                <MainContentTag nowTag={nowTag} />
+            </StyledContent>
+        </GridContainer>
+    );
+};
 
-export {ContentTag};
+export { ContentTag };

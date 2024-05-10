@@ -1,13 +1,19 @@
 import { Component } from 'react';
-import { HeaderTag } from '../components/HeaderTag';
+import styled from 'styled-components';
+import { HeaderTag } from '../components/navigation-bar/HeaderTag';
 import { ContentTag } from '../components/ContentTag';
 
+const Main = styled.div`
+    & > *:not(:last-child) {
+        margin-bottom: 16px;
+    }
+`;
 class MainPage extends Component {
-
     render() {
         return (
-            <div className="main">
+            <Main>
                 <HeaderTag />
+
                 <ContentTag />
                 {/* <div className="header">
                     <div className="logo-part">
@@ -173,7 +179,7 @@ class MainPage extends Component {
                         </div>
                     </div>
                 </div> */}
-            </div>
+            </Main>
         );
     }
 }

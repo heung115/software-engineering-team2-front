@@ -1,5 +1,5 @@
-import '../styles/SearchTag.css';
-import ServerAPI from '../services/ServerAPI';
+import '../../styles/SearchTag.css';
+import ServerAPI from '../../services/ServerAPI';
 import { Component } from 'react';
 
 class SearchTag extends Component {

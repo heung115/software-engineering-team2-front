@@ -3,11 +3,9 @@ import Login from './pages/Login';
 import SignupForm from './pages/SignupForm';
 import Modal from './components/Modal';
 import UserProfile from './components/UserProfile';
-import { MainPage } from "./pages/MainPage";
-import { HeaderTag } from './components/HeaderTag';
+import { MainPage } from './pages/MainPage';
+import { HeaderTag } from './components/navigation-bar/HeaderTag';
 import './App.css';
-
-
 
 const App = () => {
     const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import '../styles/MainContentTag.css';
-import ServerAPI from '../services/ServerAPI';
-import { MovieTag } from './MovieTag';
+import ServerAPI from '../../services/ServerAPI';
+import styled from 'styled-components';
+import { MovieTag } from '../MovieTag';
+import Banner from './Banner';
 
 const MainContentTag = ({ nowTag }) => {
     const [data, setData] = useState([]);
@@ -23,7 +24,7 @@ const MainContentTag = ({ nowTag }) => {
             const res = response.data;
             console.log(res);
             setData(res);
-            setMaxPage(Math.ceil(res['movies'].length / 6 - 1))
+            setMaxPage(Math.ceil(res['movies'].length / 6 - 1));
         } catch (error) {
             console.error('Error fetching data:', error);
         }
@@ -33,57 +34,24 @@ const MainContentTag = ({ nowTag }) => {
         if (page < maxPage) {
             setPage(page + 1);
         } else {
-            console.log("max page")
+            console.log('max page');
         }
-    }
+    };
 
     const decPage = () => {
         if (page > 0) {
             setPage(page - 1);
         }
-    }
+    };
 
     return (
         <div className="main-content">
-            <div className="main-top">
-                <div className="main-movie-detail">
-                    <h2 className="main-movie-title">
-                        {'main' in data
-                            ? data['main']['title']
-                            : 'rendering...'}
-                    </h2>
-                    <div className="main-movie-describe">
-                        {'main' in data
-                            ? data['main']['describe']
-                            : 'rendering...'}
-                    </div>
-                    <div className="main-movie-container">
-                        <button className="main-add">add</button>
-                        <button className="main-add">add</button>
-                    </div>
-                </div>
-                <div className="main-movie-poster-container">
-                    <img
-                        className="main-movie-poster"
-                        src={
-                            'main' in data
-                                ? data['main']['cover_url']
-                                : 'rendering'
-                        }
-                    ></img>
-                </div>
-            </div>
+            {data ? <Banner data={data} /> : <div> load</div>}
             <div className="main-mid">
-                <div
-                    className="move-left"
-                    onClick={decPage}
-                >
+                <div className="move-left" onClick={decPage}>
                     {'<'}
                 </div>
-                <div
-                    className="move-right"
-                    onClick={incPage}
-                >
+                <div className="move-right" onClick={incPage}>
                     {'>'}
                 </div>
             </div>

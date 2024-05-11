@@ -1,22 +1,20 @@
-import styled from 'styled-components';
+import { InputGroup, InputLabel, InputTag, InputError } from '../../styles/InputTagDesign';
 
-const EmailFormGroup = styled.div``;
 
-const EmailLabel = styled.label``;
+const LoginInputEmail = ({ userEmail, setUserEmail}) => {
 
-const EmailInput = styled.input``;
-
-const LoginInputEmail = ({ userEmail, setUserEmail }) => {
     return (
-        <EmailFormGroup>
-            <EmailLabel htmlFor="userEmail">Email:</EmailLabel>
-            <EmailInput
+        <InputGroup>
+            <div>
+            <InputTag
                 type="text"
                 id="userEmail"
-                value={userEmail}
+                value={userEmail ? userEmail : null}
                 onChange={(e) => setUserEmail(e.target.value)}
-            ></EmailInput>
-        </EmailFormGroup>
+                required></InputTag>
+            <InputLabel htmlFor="userEmail">Enter Your Email</InputLabel>
+            </div>
+        </InputGroup>
     );
 };
 

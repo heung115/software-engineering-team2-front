@@ -1,22 +1,16 @@
-import styled from 'styled-components';
+import { InputGroup, InputLabel, InputTag } from "../../styles/InputTagDesign";
 
-const PwFormGroup = styled.div``;
-
-const PwLabel = styled.label``;
-
-const PwInput = styled.input``;
-
-const LoginInputPassword = ({ userPw, setUserPw }) => {
+const LoginInputPassword = ({ userPw, setUserPw}) => {
     return (
-        <PwFormGroup>
-            <PwLabel htmlFor="userPw">Password:</PwLabel>
-            <PwInput
-                type="text"
+        <InputGroup>
+            <InputTag
+                type="password"
                 id="userPw"
-                value={userPw}
+                value={userPw ? userPw : null}
                 onChange={(e) => setUserPw(e.target.value)}
-            ></PwInput>
-        </PwFormGroup>
+                required></InputTag>
+            <InputLabel htmlFor="userPw">Enter Your Password</InputLabel>
+        </InputGroup>
     );
 };
 

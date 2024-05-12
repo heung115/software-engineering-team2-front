@@ -82,7 +82,7 @@ const LoginModal = ({ closeMe }) => {
             </LoginContainer>
             <LoginEtc googleLogin={handleGoogleLogin}></LoginEtc>
             <Modal isOpen={isSignupModalOpen} onClose={closeSignupModal}>
-                <SignUpModal closeModal={closeSignupModal} />
+                <SignUpModal closeMe={closeSignupModal} />
             </Modal>
         </div>
     );

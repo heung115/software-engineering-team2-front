@@ -1,27 +1,21 @@
-import styled from 'styled-components';
-
-const PwFormGroup = styled.div``;
-
-const PwLabel = styled.label``;
-
-const PwInput = styled.input``;
-
-const ErrorP = styled.p`
-`;
+import { InputGroup, InputLabel, InputTag, InputError } from '../../styles/InputTagDesign';
 
 const SignUpInputPassword = ({ userPw, setUserPw, errors }) => {
     return (
-        <PwFormGroup>
-            <PwLabel htmlFor="userSignUpPw">Password:</PwLabel>
-            <PwInput
-                type="text"
-                id="userSignPw"
-                value={userPw}
-                onChange={(e) => setUserPw(e.target.value)}
-                required
-            ></PwInput>
-            {errors.password && <ErrorP>{errors.password}</ErrorP>}
-        </PwFormGroup>
+        <div>
+            <InputGroup>
+                <InputTag
+                    type="text"
+                    id="userSignPw"
+                    value={userPw}
+                    onChange={(e) => setUserPw(e.target.value)}
+                    required
+                ></InputTag>
+                <InputLabel htmlFor="userSignUpPw">Password:</InputLabel>
+            </InputGroup>
+            <InputError>{errors.password}</InputError>
+            {/* {errors.password && } */}
+        </div>
     );
 };
 

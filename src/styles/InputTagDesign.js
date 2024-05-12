@@ -46,6 +46,15 @@ const InputLabel = styled.label`
     }
 `;
 
-const InputError = styled.p``;
+const InputError = styled.p`
+    width: 90%;
+    height: 16px;
+    margin: 0 auto;
+    padding-left: 10px;
+    margin-top: -10px;
+    margin-bottom: 20px;
+    color: red;
+    font-size: 0.8em;
+`;
 
 export { InputGroup, InputLabel, InputTag, InputError };

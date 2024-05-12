@@ -7,7 +7,9 @@ function useSignup() {
     const [error, setError] = useState(null);
     const [isSuccess, setIsSuccess] = useState(false);
 
-    const signup = async (email, password, onSuccess) => {
+    const signup = async ({email, password, onSuccess}) => {
+        let res = false;
+        console.log(email, password, onSuccess)
         setIsLoading(true);
         setError(null);
         setIsSuccess(false);
@@ -22,18 +24,32 @@ function useSignup() {
                     },
                 },
             });
+
+            if (data['session'] === null) {
+                res = false;
+            } else {
+                res = true;
+            }
+
             await new Promise((resolve) => setTimeout(resolve, 2000));
 
             setIsSuccess(true); // 성공 상태 설정
         } catch (error) {
             console.error('Error signing up:', error);
             setError(error.message || 'Something went wrong');
+            res = false;
         } finally {
             setIsLoading(false);
+        }
+
+        if (res) {
             setTimeout(() => {
                 onSuccess();
             }, 1000);
+            return true;
         }
+        return false;
+
     };
 
     const validateForm = (email, password, confirmPassword, setErrors) => {

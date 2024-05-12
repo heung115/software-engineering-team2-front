@@ -1,4 +1,3 @@
-import '../../styles/SearchTag.css';
 import ServerAPI from '../../services/ServerAPI';
 import { Component } from 'react';
 

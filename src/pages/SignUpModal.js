@@ -1,6 +1,5 @@
 // SignupForm.js
 import React, { useState } from 'react';
-import '../styles/SignupForm.css';
 import styled from 'styled-components';
 import useSignup from '../hooks/useSignup';
 import { SignUpForm } from '../components/sign-up-modal/SignUpForm';

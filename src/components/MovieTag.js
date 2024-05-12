@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import '../styles/MovieTag.css';
 
 function MovieTag({poster_url, title}) {
     return (

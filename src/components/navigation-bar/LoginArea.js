@@ -3,6 +3,7 @@ import { useState, useContext } from 'react';
 import { SessionContext } from '../../services/SessionProvider';
 import Modal from '../Modal';
 import LoginModal from '../../pages/LoginModal';
+import { useLogin } from '../../hooks/useLogin';
 
 
 const LoginArea = () => {
@@ -12,13 +13,14 @@ const LoginArea = () => {
     const openLoginModal = () => setIsLoginModalOpen(true);
     const closeLoginModal = () => setIsLoginModalOpen(false);
 
+    const { handleLogOut } = useLogin();
     const session = useContext(SessionContext)
 
     return (
         <div>
             {
                 session.isLogin?
-                <button onClick={openLoginModal}>로그아웃</button>
+                <button onClick={handleLogOut}>로그아웃</button>
                 :
                 <button onClick={openLoginModal}>로그인</button>
             }

@@ -14,7 +14,10 @@ const SessionProvider = ({ children }) => {
             (event, session) => {
                 try {
                     if (event === 'SIGNED_OUT') {
-                        setSession(null);
+                        setSession({
+                            'isLogin': false,
+                            'userId': "no-id"
+                        });
                     } else if (session) {
                         setSession({
                             'isLogin': true,

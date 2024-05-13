@@ -13,7 +13,7 @@
     left: 50%;
     padding-top: 20px;
     transform: translateX(-50%);
-    z-index: 1001;
+    z-index: 101;
     display: flex;
     background: rgb(247, 241, 241);
     justify-content: space-evenly;
@@ -27,19 +27,6 @@
     height: 100%;
     background: rgb(239, 234, 234);
     position: relative;
-}
-
-.search-part {
-    position: relative;
-    width: 50%;
-    height: 100%;
-    background: rgb(250, 246, 246);
-}
-
-.login-part {
-    width: 20%;
-    height: 100%;
-    background: rgb(241, 239, 239);
 }
 
 /* logo-part css */
@@ -68,127 +55,11 @@
     height: 100%;
 }
 
-/* search-part css */
-.search-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90%;
-    height: 60%;
-}
-
-.search-area {
-    width: 100%;
-    height: 100%;
-    border-radius: 5px;
-    background: rgb(205, 191, 191);
-    transition: all 0.4s;
-    overflow: hidden;
-}
-
-.search-area-expand {
-    height: 200px;
-}
-
-.search-window {
-    width: 100%;
-    height: 48px;
-    display: flex;
-    align-items: center;
-}
-
-.search-icon {
-    background-image: url(../assets/search.png);
-    background-size: 100% 100%;
-    margin-left: 10px;
-    width: 40px;
-    height: 40px;
-}
-
-.search-field {
-    width: 80%;
-    height: 100%;
-    background: transparent;
-    padding-left: 5px;
-    text-align: left;
-    font-size: 22px;
-}
-
-.search-field:focus {
-    outline: none;
-}
-
-.search-field:focus::placeholder {
-    color: transparent;
-}
-
-/* search log part */
-.search-log {
-    margin: 0px;
-    width: 100%;
-    height: auto;
-}
-
-.search-line {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    border-top-right-radius: 13px;
-    border-bottom-right-radius: 13px;
-    margin-right: 10px;
-    transition: all 0.4s;
-}
-
-.search-line:hover {
-    background-color: rgb(132, 136, 132);
-}
-
-.search-log-icon {
-    background-image: url(../assets/history.png);
-    background-size: 100% 100%;
-    width: 23px;
-    height: 20px;
-    margin: 10px 10px;
-}
-
-.search-log-content {
-    margin: 0px;
-    margin-right: 10px;
-    text-align: left;
-    width: 80%;
-    height: 40px;
-    line-height: 40px;
-}
-
-
-/* login-part css */
-.profile-container {
-    position: relative;
-    width: 80%;
-    height: 100%;
-}
-
-.profile {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-image: url(../assets/profile.png);
-    background-size: 100% 100%;
-    width: 40px;
-    height: 40px;
-}
-
-.login-container {
-    display: none;
-}
-
 .header-hidden {
-    z-index: 1000;
+    z-index: 100;
     margin-top: 20px;
     width: 85%;
-    height: 80px;
+    height: 20px;
 }
 
 /* content css */

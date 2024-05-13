@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import '../assets/Modal.css'; // 모달에 대한 스타일
+import '../styles/Modal.css'; // 모달에 대한 스타일
 
 const Modal = ({ children, isOpen, onClose }) => {
     if (!isOpen) return null;

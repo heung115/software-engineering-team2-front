@@ -1,19 +1,32 @@
-import React, { createContext, useState, useEffect } from 'react'; // supabase 클라이언트 설정 파일을 임포트
-import { supabase } from '../services/Supabase';
+import React, { createContext, useState, useEffect } from 'react';
+import { supabase } from './Supabase';
 
 export const SessionContext = createContext(null);
 
 const SessionProvider = ({ children }) => {
-    const [session, setSession] = useState(null);
+    const [session, setSession] = useState({
+        'isLogin': false,
+        'userId': "no-id",
+        'isSelect': true
+    });
 
     useEffect(() => {
         const subscription = supabase.auth.onAuthStateChange(
             (event, session) => {
+                console.log(session)
                 try {
                     if (event === 'SIGNED_OUT') {
-                        setSession(null);
+                        setSession({
+                            'isLogin': false,
+                            'userId': "no-id",
+                            'isSelect': true
+                        });
                     } else if (session) {
-                        setSession(session);
+                        setSession({
+                            'isLogin': true,
+                            'userId': session.user.id,
+                            'isSelect': false
+                        })
                     }
                 } catch (error) {
                     console.error('Error handling auth state change', error);

@@ -1,0 +1,105 @@
+.main-content {
+    right: 10px;
+    width: 820px;
+    height: 440px;
+}
+
+.main-content > * {
+    position: absolute;
+}
+
+.main-top {
+    top: 5px;
+    width: 100%;
+    height: 210px;
+    border: 1px solid black;
+}
+
+.main-top > * {
+    position: absolute;
+}
+
+.main-movie-detail {
+    left: 5px;
+    width: 300px;
+    height: 100%;
+    border: 1px solid blue;
+}
+
+.main-movie-title {
+    margin: 0px 0px;
+    margin-top: 15px;
+    margin-left: 5px;
+    text-align: left;
+}
+
+.main-movie-describe {
+    width: 100%;
+    height: 110px;
+    margin: 0px 0px;
+    margin-top: 5px;
+
+    padding-left: 5px;
+    text-align: left;
+    display: -webkit-box;
+    word-wrap: break-word;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.main-movie-poster-container {
+    right: 5px;
+    border: 1px solid red;
+    width: 500px;
+    height: 100%;
+}
+
+.main-movie-poster {
+    height: 100%;
+    width: auto;
+}
+
+.main-movie-container {
+    display: flex;
+    margin-top: 10px;
+    justify-content: flex-start;
+}
+
+.main-add {
+    width: 100px;
+    height: 30px;
+    margin-right: 5px;
+}
+
+.main-mid {
+    width: 100%;
+    height: 20px;
+    bottom: 194px;
+}
+
+.main-mid > * {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 1px solid black;
+}
+
+.move-right {
+    right: 0px;
+}
+
+.move-left {
+    right: 30px;
+}
+
+.main-bot {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 180px;
+    bottom: 4px;
+    border: 1px solid black;
+    overflow: hidden;
+}

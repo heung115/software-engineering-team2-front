@@ -1,10 +1,17 @@
 import React from 'react';
 import { useState } from 'react';
 import { supabase } from '../services/Supabase';
-import '../assets/LoginForm.css';
+import '../styles/LoginForm.css';
+import Modal from '../components/Modal';
+import SignupForm from './SignupForm';
+
 function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+
+    const [isSignupModalOpen, setIsSignupModalOpen] = useState(false);
+    const openSignupModal = () => setIsSignupModalOpen(true);
+    const closeSignupModal = () => setIsSignupModalOpen(false);
 
     const handleGoogleLogin = async () => {
         const { data, error } = await supabase.auth.signInWithOAuth({
@@ -35,16 +42,11 @@ function Login() {
     };
     return (
         <div>
-            <h2>Login</h2>
-            <button onClick={handleGoogleLogin}>Login with Google</button>
-            <h2>LogOut</h2>
-            <button onClick={logOut}>LogOut</button>
-
             <div className="login-container">
                 <form onSubmit={handleSubmit}>
                     <h2>Login</h2>
                     <div className="form-group">
-                        <label htmlFor="username">Username:</label>
+                        <label htmlFor="username">Email:</label>
                         <input
                             type="text"
                             id="username"
@@ -63,9 +65,34 @@ function Login() {
                             required
                         />
                     </div>
-                    <button type="submit">Login</button>
+                    <button className="login-button" type="submit">
+                        Login
+                    </button>
                 </form>
+                <button
+                    className="login-button"
+                    onClick={openSignupModal}
+                >
+                    Sign Up
+                </button>
             </div>
+            <div className="login-etc">
+                <img
+                    className="login-google-logo"
+                    src="https://d1nuzc1w51n1es.cloudfront.net/d99d8628713bb69bd142.png"
+                    onClick={handleGoogleLogin}
+                ></img>
+                <div className="login-google-text" onClick={handleGoogleLogin}>
+                    Login with Google
+                </div>
+            </div>
+
+            <Modal
+                isOpen={isSignupModalOpen}
+                onClose={closeSignupModal}
+            >
+                <SignupForm closeModal={closeSignupModal} />
+            </Modal>
         </div>
     );
 }

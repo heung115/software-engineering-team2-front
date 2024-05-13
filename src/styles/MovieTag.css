@@ -1,0 +1,21 @@
+.movie-component {
+    flex: 0 0 auto;
+    margin: 0px 5px;
+    height: 100%;
+    width: 120px;
+    border: 1px solid black;
+}
+
+.movie-poster-container {
+    width: 100%;
+}
+
+.movie-poster {
+    margin-top: 5px;
+    width: 80%;
+}
+
+.movie-title {
+    margin: 0px;
+    font-size: small;
+}

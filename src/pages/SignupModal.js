@@ -1,108 +1,64 @@
 // SignupForm.js
 import React, { useState } from 'react';
-import '../styles/SignupForm.css';
+import styled from 'styled-components';
 import useSignup from '../hooks/useSignup';
+import { SignUpForm } from '../components/sign-up-modal/SignUpForm';
 
-function SignupForm({ closeModal }) {
+const SignUpContainer = styled.div`
+    width: 450px;
+    height: auto;
+    margin: 0 auto;
+    border: 1px solid black;
+    border-radius: 5px;
+`;
+
+const SignUpTitle = styled.h2`
+    text-align: center;
+    margin-bottom: 30px;
+    font-weigth: bolder;
+`;
+
+const SignUpModal = ({ closeMe }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [errors, setErrors] = useState({});
-    const { signup, isLoading, error, isSuccess } = useSignup();
+    const { signup, validateForm, isLoading, isSuccess } = useSignup();
 
-    const validateForm = () => {
-        let isValid = true;
-        const newErrors = {};
-
-        if (!email) {
-            isValid = false;
-            newErrors.email = 'Email is required';
-        } else if (!/\S+@\S+\.\S+/.test(email)) {
-            isValid = false;
-            newErrors.email = 'Email address is invalid';
-        }
-
-        if (!password) {
-            isValid = false;
-            newErrors.password = 'Password is required';
-        } else if (password.length < 6) {
-            isValid = false;
-            newErrors.password = 'Password must be at least 6 characters long';
-        }
-
-        if (password !== confirmPassword) {
-            isValid = false;
-            newErrors.confirmPassword = 'Passwords do not match';
-        }
-
-        setErrors(newErrors);
-        return isValid;
-    };
-
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        if (validateForm()) {
-            signup(email, password, closeModal);
+
+        if (validateForm(email, password, confirmPassword, setErrors)) {
+            // signup(email, password, closeMe);
+            const res = await signup({email: email, password: password, onSuccess: closeMe})
+
+            if (res) {
+                alert("Signup successful!");
+            } else {
+                alert("This is a duplicate ID.");
+            }
+
         }
     };
 
     return (
-        <div className="signup-container">
-            <h2>Sign Up</h2>
-            {isSuccess && <p>Signup successful!</p>}
-            <form onSubmit={handleSubmit}>
-                <div className="form-group">
-                    <label htmlFor="email">Email:</label>
-                    <input
-                        type="email"
-                        id="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                    />
-                    {errors.email && <p className="error">{errors.email}</p>}
-                </div>
-                <div className="form-group">
-                    <label htmlFor="password">Password:</label>
-                    <input
-                        type="password"
-                        id="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
-                    />
-                    {errors.password && (
-                        <p className="error">{errors.password}</p>
-                    )}
-                </div>
-                <div className="form-group">
-                    <label htmlFor="confirm-password">Confirm Password:</label>
-                    <input
-                        type="password"
-                        id="confirm-password"
-                        value={confirmPassword}
-                        onChange={(e) => setConfirmPassword(e.target.value)}
-                        required
-                    />
-                    {errors.confirmPassword && (
-                        <p className="error">{errors.confirmPassword}</p>
-                    )}
-                </div>
-                <button
-                    type="submit"
-                    disabled={isLoading}
-                    className={isLoading || isSuccess ? 'button-disabled' : ''}
-                >
-                    Sign Up
-                </button>
-                {isLoading && (
-                    <div className="loader-container">
-                        <div className="loader"></div>
-                    </div>
-                )}
-            </form>
-        </div>
+        <SignUpContainer>
+            <SignUpTitle>Sign Up</SignUpTitle>
+            {/* {isSuccess && <p>Signup successful!</p>} */}
+            <SignUpForm
+                email={email}
+                setEmail={setEmail}
+                userPw={password}
+                setUserPw={setPassword}
+                confirmPw={confirmPassword}
+                setConfirmPw={setConfirmPassword}
+                errors={errors}
+                setErrors={setErrors}
+                isLoading={isLoading}
+                handleSubmit={handleSubmit}
+            />
+        </SignUpContainer>
     );
-}
+};
 
-export default SignupForm;
+export { SignUpModal };

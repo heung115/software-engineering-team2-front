@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Logo from './Logo';
 import { SearchTag } from './SearchTag';
-import ButtonArea from './ButtonArea';
+import LoginArea from './LoginArea';
 
 const GridContainer = styled.div`
     display: grid;
@@ -24,7 +24,7 @@ const StyledSearch = styled.div`
     grid-column: 5 / 8;
 `;
 
-const StyledButton = styled(ButtonArea)`
+const StyledButton = styled(LoginArea)`
     grid-column: 8 / 9;
 `;
 

@@ -1,9 +1,5 @@
 import React, { useState } from 'react';
-import Login from './pages/Login';
-import SignupForm from './pages/SignupForm';
-import Modal from './components/Modal';
-import UserProfile from './components/UserProfile';
-import { MainPage } from "./pages/MainPage";
+import { MainPage } from './pages/MainPage';
 import './App.css';
 
 const App = () => {
@@ -16,7 +12,7 @@ const App = () => {
     const closeSignupModal = () => setIsSignupModalOpen(false);
     return (
         <div className="App">
-            <h1>Supabase Auth Example</h1>
+            {/* <h1>Supabase Auth Example</h1>
             <UserProfile />
             <br></br>
             <div className="button-container">
@@ -28,7 +24,8 @@ const App = () => {
             </Modal>
             <Modal isOpen={isSignupModalOpen} onClose={closeSignupModal}>
                 <SignupForm closeModal={closeSignupModal} />
-            </Modal>
+            </Modal> */}
+            {/* <HeaderTag /> */}
             <MainPage />
         </div>
     );

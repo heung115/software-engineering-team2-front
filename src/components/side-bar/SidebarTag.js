@@ -28,7 +28,7 @@ const TagGridItem = styled.div`
     // border: 1px solid blue;
 `;
 function SidebarTag({ nowTag, changeTag }) {
-    const [tags, setTags] = useState(['']);
+    const [tags, setTags] = useState(['Recommand']);
 
     useEffect(() => {
         getTag();

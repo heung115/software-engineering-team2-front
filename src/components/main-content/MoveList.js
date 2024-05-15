@@ -27,6 +27,7 @@ const MoveList = ({ data, page }) => {
                                   key={index}
                                   poster_url={movie['cover_url']}
                                   title={movie['title']}
+                                  scope={movie['scope']}
                               />
                           </MovieGridItem>
                       ))

@@ -10,6 +10,9 @@ const GridContainer = styled.div`
     gap: 20px;
     padding: 0 10px;
     // border: 1px solid green;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px; // 둥근 모서리
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); // 은은한 그림자 효과
 `;
 
 const DetailGridItem = styled.div`

@@ -8,6 +8,13 @@ const Grid = styled.div`
     grid-template-rows: repeat(12, minmax(1fr, 1fr));
     grid-gap: 20px;
     height: 100vh;
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.2) 70%,
+        rgba(0, 0, 0, 0)
+    );
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); // 은은한 왼쪽 그림자 효과
 `;
 
 const EmptyGridItem = styled.div`
@@ -21,7 +28,7 @@ const TagGridItem = styled.div`
     // border: 1px solid blue;
 `;
 function SidebarTag({ nowTag, changeTag }) {
-    const [tags, setTags] = useState(['Recommand']);
+    const [tags, setTags] = useState(['']);
 
     useEffect(() => {
         getTag();
@@ -30,10 +37,11 @@ function SidebarTag({ nowTag, changeTag }) {
     const getTag = async () => {
         try {
             // axios를 사용하여 서버로부터 데이터를 가져옵니다. (예시)
-            const response = await ServerAPI.get('http://localhost:8000/tags');
+            const response = await ServerAPI.get('/genre');
 
             // 가져온 데이터를 상태에 업데이트합니다.
-            const res = tags.concat(response.data['tags']);
+            const res = tags.concat(response.data['genre']);
+            console.log('tags : ');
             console.log(res);
             setTags(res);
         } catch (error) {

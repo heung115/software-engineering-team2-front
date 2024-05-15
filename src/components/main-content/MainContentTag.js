@@ -18,9 +18,9 @@ const MainContentTag = ({ nowTag }) => {
     const getData = async () => {
         try {
             // axios를 사용하여 서버로부터 데이터를 가져옵니다. (예시)
-            const response = await ServerAPI.get(
-                'http://localhost:8000/get_movie_list/' + nowTag,
-            );
+            const response = await ServerAPI.get('/get_movie_list/' + nowTag);
+
+            // const response = await ServerAPI.get('/get-movie-list/' + nowTag);
 
             // 가져온 데이터를 상태에 업데이트합니다.
             const res = response.data;

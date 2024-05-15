@@ -19,7 +19,8 @@ const Background = styled.div`
     }
 
     &.select-tag {
-        // 여기에 선택된 태그의 스타일을 추가하세요.
+        background-color: rgba(128, 128, 128, 0.2);
+        box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.2); // 아래쪽에만 그림자 추가
     }
 `;
 const Icon = styled.i`

@@ -20,7 +20,6 @@ const StyledLogo = styled(Logo)`
 `;
 
 const StyledSearch = styled.div`
-    border: 1px solid black;
     grid-column: 5 / 8;
 `;
 
@@ -36,9 +35,7 @@ const HeaderTag = () => {
         <GridContainer>
             <StyledLogo />
             <EmptyGridItem />
-            <StyledSearch>
-                <SearchTag />
-            </StyledSearch>
+            <StyledSearch>{/* <SearchTag /> */}</StyledSearch>
             <StyledButton />
         </GridContainer>
     );

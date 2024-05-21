@@ -15,6 +15,7 @@ const Grid = styled.div`
     );
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); // 은은한 왼쪽 그림자 효과
+    overflow-y: auto;
 `;
 
 const EmptyGridItem = styled.div`
@@ -28,7 +29,7 @@ const TagGridItem = styled.div`
     // border: 1px solid blue;
 `;
 function SidebarTag({ nowTag, changeTag }) {
-    const [tags, setTags] = useState(['']);
+    const [tags, setTags] = useState(['Recommand']);
 
     useEffect(() => {
         getTag();
@@ -53,7 +54,7 @@ function SidebarTag({ nowTag, changeTag }) {
         <Grid>
             <EmptyGridItem />
 
-            {Array.from({ length: 11 }).map((_, index) => {
+            {Array.from({ length: tags.length }).map((_, index) => {
                 if (index < tags.length) {
                     return (
                         <TagGridItem key={index}>

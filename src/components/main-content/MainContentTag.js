@@ -49,7 +49,9 @@ const MainContentTag = ({ nowTag }) => {
     return (
         <div className="main-content">
             {data ? <Banner data={data} /> : <div> load</div>}
-            <MovePage decPage={decPage} incPage={incPage} />
+            {/* <MovePage decPage={decPage} incPage={incPage} /> */}
+            <br />
+            <br />
             {data ? <MoveList data={data} page={page} /> : <div>load</div>}
         </div>
     );

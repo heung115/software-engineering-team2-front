@@ -2,25 +2,11 @@ import styled, { keyframes } from 'styled-components';
 import { SignUpInputEmail } from './SignUpInputEmail';
 import { SignUpInputPassword } from './SignUpInputPassword';
 import { SignUpInputConFirm } from './SignUpInputConfirm';
+import { SubmitButton } from '../../styles/ButtonDesign';
 
 const SignUpFormContainer = styled.form`
     position: relative;
-`;
-
-const SignUpSubmitButton = styled.button`
-    display: block;
-    width: 89.9%;
-    padding: 10px;
-    border: none;
-    margin: 0 auto;
-    margin-bottom: 20px;
-    background-color: #007bff;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    &.hover {
-        background-color: #0056b3;
-    }
+    background-color: #fff;
 `;
 
 const SignUpLoaderContainer = styled.div`
@@ -47,6 +33,12 @@ const SignUpLoader = styled.div`
     width: 30px;
     height: 30px;
     animation: ${SpinAnimation} 2s linear infinite;
+`;
+
+const SubmitButtonPadding = styled(SubmitButton)`
+    width: 90%;
+    margin: 0 auto;
+    display: block;
 `;
 
 const SignUpForm = ({
@@ -83,9 +75,9 @@ const SignUpForm = ({
                     <SignUpLoader></SignUpLoader>
                 </SignUpLoaderContainer>
             ) : (
-                <SignUpSubmitButton type="submit" disabled={isLoading}>
+                <SubmitButtonPadding type="submit" disabled={isLoading}>
                     Sign Up
-                </SignUpSubmitButton>
+                </SubmitButtonPadding>
             )}
         </SignUpFormContainer>
     );

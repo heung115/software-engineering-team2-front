@@ -7,35 +7,36 @@ import { LoginEtc } from '../components/login-modal/LoginEtc';
 
 const LoginContainer = styled.div`
     width: 450px;
-    margin: 0 auto;
-    border: 1px solid black;
-    border-radius: 5px;
-    padding-bottom: 20px; 
+    margin: 100px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px; /* Rounded corners for a modern look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 `;
 
 const LoginTitle = styled.h2`
     text-align: center;
-    margin-bottom: 30px;
-    font-weigth: bolder;
+    margin-bottom: 40px;
+    // color: #fff;
+    font-weight: bold;
+    font-size: 34px; /* Larger font size for prominence */
 `;
 
 const SignUpButton = styled.button`
-    display: block;
-    width: 89.9%;
-    padding: 10px;
-    border: none;
-    margin: 0 auto;
+    width: 100%;
     margin-top: 10px;
-    margin-bottom: 5px;
-    background-color: #007bff;
-    color: white;
-    border-radius: 5px;
+    padding: 10px;
+    background-color: #79589f;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
     cursor: pointer;
-    &.hover {
-        background-color: #0056b3;
+    font-size: 16px;
+
+    &:hover {
+        background-color: #6b4b87;
     }
 `;
-
 
 const LoginModal = ({ closeMe, openSignup }) => {
     // 내가 가지고 있는 정보
@@ -50,7 +51,7 @@ const LoginModal = ({ closeMe, openSignup }) => {
 
         const res = await handleIdPwLogin({
             userEmail: email,
-            userPassword: password
+            userPassword: password,
         });
 
         if (res) {
@@ -61,21 +62,18 @@ const LoginModal = ({ closeMe, openSignup }) => {
     };
 
     return (
-        <div>
-            <LoginContainer>
-                <LoginTitle>Login</LoginTitle>
-                <LoginForm
-                    handleSubmit={handleSubmit}
-                    userEmail={email}
-                    setUserEmail={setEmail}
-                    userPw={password}
-                    setUserPw={setPassword}
-                ></LoginForm>
-                <SignUpButton onClick={openSignup}>Sign Up</SignUpButton>
-            </LoginContainer>
+        <LoginContainer>
+            <LoginTitle>Login</LoginTitle>
+            <LoginForm
+                handleSubmit={handleSubmit}
+                userEmail={email}
+                setUserEmail={setEmail}
+                userPw={password}
+                setUserPw={setPassword}
+            ></LoginForm>
+            <SignUpButton onClick={openSignup}>Sign Up</SignUpButton>
             <LoginEtc googleLogin={handleGoogleLogin}></LoginEtc>
-        </div>
+        </LoginContainer>
     );
 };
-
 export default LoginModal;

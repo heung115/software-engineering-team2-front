@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { MainPage } from './pages/MainPage';
 import './App.css';
+import { MovieDetailPage } from './pages/MovieDetailPage';
+import { Routes, Route } from 'react-router-dom';
 
 const App = () => {
     const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
@@ -12,21 +14,10 @@ const App = () => {
     const closeSignupModal = () => setIsSignupModalOpen(false);
     return (
         <div className="App">
-            {/* <h1>Supabase Auth Example</h1>
-            <UserProfile />
-            <br></br>
-            <div className="button-container">
-                <button onClick={openLoginModal}>Login</button>
-                <button onClick={openSignupModal}>Sign Up</button>
-            </div>
-            <Modal isOpen={isLoginModalOpen} onClose={closeLoginModal}>
-                <Login />
-            </Modal>
-            <Modal isOpen={isSignupModalOpen} onClose={closeSignupModal}>
-                <SignupForm closeModal={closeSignupModal} />
-            </Modal> */}
-            {/* <HeaderTag /> */}
-            <MainPage />
+            <Routes>
+                <Route path="/" element={<MainPage />} />
+                <Route path="/movie-detail/:id" element={<MovieDetailPage />} />
+            </Routes>
         </div>
     );
 };

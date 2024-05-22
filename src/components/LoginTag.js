@@ -1,8 +1,16 @@
-import '../styles/LoginTag.css';
 import { Component } from 'react';
+import styled from 'styled-components';
+
 import Modal from './Modal.js';
 import Login from '../pages/Login.js';
 import SignupForm from '../pages/SignupForm.js';
+
+const StyledModal = styled(Modal)`
+    width: 600px;
+    height: 400px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+`;
 
 class LoginTag extends Component {
     state = {
@@ -17,27 +25,14 @@ class LoginTag extends Component {
 
     render() {
         return (
-            <div className="login-part">
-                {/* <h1>Supabase Auth Example</h1>
-            <UserProfile />
-            <br></br>
-            <div className="button-container">
-                <button onClick={openLoginModal}>Login</button>
-                <button onClick={openSignupModal}>Sign Up</button>
-            </div>
-            <Modal isOpen={isLoginModalOpen} onClose={closeLoginModal}>
-                <Login />
-            </Modal>
-            <Modal isOpen={isSignupModalOpen} onClose={closeSignupModal}>
-                <SignupForm closeModal={closeSignupModal} />
-            </Modal> */}
-                <div className="profile-container">
-                    <div className="profile"
-                    onClick={this.openLoginModal}></div>
-                    <Modal isOpen={this.state.isLoginModalOpen} onClose={this.closeLoginModal}>
-                        <Login closeModal={this.closeLoginModal} />
-                    </Modal>
-                </div>
+            <div className="profile-container">
+                {/* <div className="profile" onClick={this.openLoginModal}></div> */}
+                <StyledModal
+                    isOpen={this.state.isLoginModalOpen}
+                    onClose={this.closeLoginModal}
+                >
+                    <Login closeModal={this.closeLoginModal} />
+                </StyledModal>
             </div>
         );
     }

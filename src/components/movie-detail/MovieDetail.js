@@ -23,7 +23,7 @@ const MovieDetail = ({ data }) => {
 
             <MovieInfo data={data} />
             {/* <MovieInfoDiv>
-                
+            
             </MovieInfoDiv> */}
         </MovieDetailContainer>
     );

@@ -35,7 +35,7 @@ const HeaderTag = () => {
         <GridContainer>
             <StyledLogo />
             <EmptyGridItem />
-            <StyledSearch>{/* <SearchTag /> */}</StyledSearch>
+            <StyledSearch>{<SearchTag />}</StyledSearch>
             <StyledButton />
         </GridContainer>
     );

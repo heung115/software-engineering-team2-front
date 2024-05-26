@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { MainPage } from './pages/MainPage';
+import { SearchPage } from './pages/SearchPage';
 import './App.css';
 import { MovieDetailPage } from './pages/MovieDetailPage';
 import { Routes, Route } from 'react-router-dom';
@@ -17,6 +18,7 @@ const App = () => {
             <Routes>
                 <Route path="/" element={<MainPage />} />
                 <Route path="/movie-detail/:id" element={<MovieDetailPage />} />
+                <Route path="/search" element={<SearchPage />} />
             </Routes>
         </div>
     );

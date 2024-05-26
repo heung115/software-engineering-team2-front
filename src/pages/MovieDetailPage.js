@@ -5,6 +5,7 @@ import MoveList from '../components/main-content/MoveList';
 import { useParams } from 'react-router-dom';
 import ServerAPI from '../services/ServerAPI';
 import { MovieDetail } from '../components/movie-detail/MovieDetail';
+import { MovieActor } from '../components/movie-detail/MovieActor';
 
 const Main = styled.div``;
 const Content = styled.div`
@@ -64,6 +65,11 @@ const MovieDetailPage = () => {
             <Content>
                 <MovieDetail data={data} />
 
+                <MoreLabel>Actor</MoreLabel>
+                <MovieActor data={data['actors']} />
+
+                <MoreLabel>Directors</MoreLabel>
+                <MovieActor data={data['directors']} />
                 <MoreLabel>More like this</MoreLabel>
                 <MoreMovieContainer>
                     <MoveList data={data} page={0} />

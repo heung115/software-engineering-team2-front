@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
 const MoviePosterContainer = styled.div`
     position: relative;
@@ -9,20 +10,22 @@ const MoviePosterContainer = styled.div`
     align-items: center;
     justify-content: center;
     overflow: hidden;
-
+    cursor: pointer;
     &:hover .overlay {
         opacity: 1;
     }
 
     &:hover img {
         filter: brightness(50%);
+        transform: scale(1.1);
     }
 `;
 
 const MoviePosterImg = styled.img`
     width: 100%;
     height: 100%;
-    transition: filter 0.3s ease;
+    border-radius: 3px;
+    transition: filter 0.3s ease, transform 0.6s ease;
 `;
 
 const Overlay = styled.div`
@@ -35,6 +38,7 @@ const Overlay = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    border-radius: 3px;
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
     font-size: 1.5em;
@@ -52,9 +56,14 @@ const Rating = styled.div`
     font-size: 1.2em;
 `;
 
-function MovieTag({ poster_url, title, scope }) {
+function MovieTag({ poster_url, title, scope, id }) {
+    const navigate = useNavigate();
+
+    const handleMovieClick = () => {
+        navigate(`/movie-detail/${id}`);
+    };
     return (
-        <MoviePosterContainer>
+        <MoviePosterContainer onClick={handleMovieClick}>
             <MoviePosterImg src={poster_url} alt={title} />
             <Overlay className="overlay">
                 <Title>{title}</Title>

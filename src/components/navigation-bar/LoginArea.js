@@ -20,6 +20,7 @@ const LoginButton = styled.div`
     font-weight: bold;
     line-height: 30px;
     user-select: none;
+    cursor: pointer;
     transition: all 0.3s ease;
     &:hover {
         border: 1px solid black;
@@ -57,18 +58,20 @@ const LoginArea = () => {
         if (session['isLogin']) {
             getNeedSelect();
         }
-    }, [session])
+    }, [session]);
 
     const getNeedSelect = async () => {
-        let {data, error} = await supabase.from('userinfo')
-        .select('need_select').eq('id', session['userId']);
+        let { data, error } = await supabase
+            .from('userinfo')
+            .select('need_select')
+            .eq('id', session['userId']);
 
         console.log(data);
 
         if (!error) {
             setIsSelectModalOpen(data[0]['need_select']);
         }
-    }
+    };
 
     return (
         <div style={{ justifySelf: 'center', alignSelf: 'center' }}>

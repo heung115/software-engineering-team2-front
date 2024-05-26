@@ -1,8 +1,4 @@
-import '../../styles/SearchTag.css';
-import ServerAPI from '../../services/ServerAPI';
 import styled from 'styled-components';
-import { Component } from 'react';
-import SearchBox from '../SearchBox';
 import searchImg from '../../assets/search.png';
 import { useNavigate } from 'react-router-dom';
 

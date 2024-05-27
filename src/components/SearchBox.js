@@ -150,11 +150,12 @@ function SearchBox() {
         const getMovies = async () => {
             try {
                 const trimmedSearch = search.replace(/\s+/g, '').toLowerCase();
-                // const response = await ServerAPI.get('/search/' + trimmedSearch);
-                const response = await ServerAPI.get('/get-movie-list/action' );
-                const res = response.data.movies;
-                console.log('title : ', res);
-                
+                const response = await ServerAPI.get('/search/' + trimmedSearch);
+                //const response = await ServerAPI.get('/get-movie-list/action' );
+                const res = response.data;
+                console.log('res : ', response);
+                console.log('res.data : ', response);
+                console.log('query : ', trimmedSearch);
                 setMovieResult(res)
             } catch (error) {
                 console.error('Error fetching data:', error);

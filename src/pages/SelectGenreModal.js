@@ -3,9 +3,10 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import ServerAPI from '../services/ServerAPI';
 import { useSelectGenre } from '../hooks/useSelectGenre';
-
+import { SubmitButton } from '../styles/ButtonDesign';
 const SelectGenreTitle = styled.h2`
     text-align: center;
+    color: white;
 `;
 
 const AllGenreContainer = styled.div`
@@ -22,18 +23,29 @@ const GenreRows = styled.div`
 `;
 
 const GenreItem = styled.div`
-    border: 1px solid black;
+    border: 1px solid white;
+    border-radius: 5px;
+    font-weight: bold;
+    margin: 10px;
+    padding: 5px;
     width: 120px;
     height: 40px;
     line-height: 40px;
     text-align: center;
     user-select: none;
     cursor: pointer;
+    color: white;
     transition: all 0.3s ease;
     &.is_select {
-        background-color: black;
+        background-color: #260041;
         color: white;
     }
+    &:hover {
+        border: 1px solid black;
+        background: white;
+        color: black;
+        font-weight: bold;
+
 `;
 
 const GenreCompleteButton = styled.button`
@@ -68,12 +80,12 @@ const SelectGenreModal = ({ closeMe }) => {
 
     // 선택완료 번튼 관련
     const handleSubmit = () => {
-        console.log("count :", count)
+        console.log('count :', count);
         if (count == 0) {
             // 선택 완료
             completeSelect(userSelect, closeMe);
         }
-    }
+    };
 
     return (
         <div>
@@ -84,7 +96,7 @@ const SelectGenreModal = ({ closeMe }) => {
                 {genres.map((genreRow, row) => (
                     <GenreRows key={row}>
                         {genreRow.map((item, col) => (
-                            <GenreItem 
+                            <GenreItem
                                 key={col}
                                 className={
                                     userSelect.indexOf(item) != -1
@@ -109,7 +121,7 @@ const SelectGenreModal = ({ closeMe }) => {
                     </GenreRows>
                 ))}
             </AllGenreContainer>
-            <GenreCompleteButton onClick={handleSubmit}>Confirm</GenreCompleteButton>
+            <SubmitButton onClick={handleSubmit}>Confirm</SubmitButton>
         </div>
     );
 };

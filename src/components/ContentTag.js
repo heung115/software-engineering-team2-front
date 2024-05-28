@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { SidebarTag } from './side-bar/SidebarTag';
-import { MainContentTag } from './main-content/MainContentTag';
+import MainContentTag from './main-content/MainContentTag';
 
 const GridContainer = styled.div`
     display: grid;

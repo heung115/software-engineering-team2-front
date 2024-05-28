@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 import ServerAPI from '../services/ServerAPI';
 import { SessionContext } from '../services/SessionProvider';
 import { MovieDetail } from '../components/movie-detail/MovieDetail';
+import { MovieActor } from '../components/movie-detail/MovieActor';
 
 const Main = styled.div``;
 
@@ -62,16 +63,22 @@ const MovieDetailPage = () => {
     return (
         <Main>
             <HeaderTag />
+            <Content>
+                <MovieDetail data={data} />
 
-            <MovieDetail data={data}/>
+                <MoreLabel>Actor</MoreLabel>
+                <MovieActor data={data['actors']} />
 
-            <MoreLabel>More like this</MoreLabel>
-            <MoreMovieContainer>
-                <MoveList data={data} page={0} />
-            </MoreMovieContainer>
-            <MoreMovieContainer>
-                <MoveList data={data} page={1} />
-            </MoreMovieContainer>
+                <MoreLabel>Directors</MoreLabel>
+                <MovieActor data={data['directors']} />
+                <MoreLabel>More like this</MoreLabel>
+                <MoreMovieContainer>
+                    <MoveList data={data} page={0} />
+                </MoreMovieContainer>
+                <MoreMovieContainer>
+                    <MoveList data={data} page={1} />
+                </MoreMovieContainer>
+            </Content>
         </Main>
     );
 }

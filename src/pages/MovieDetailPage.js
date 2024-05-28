@@ -1,16 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import styled from 'styled-components';
 import { HeaderTag } from '../components/navigation-bar/HeaderTag';
 import MoveList from '../components/main-content/MoveList';
 import { useParams } from 'react-router-dom';
 import ServerAPI from '../services/ServerAPI';
+import { SessionContext } from '../services/SessionProvider';
 import { MovieDetail } from '../components/movie-detail/MovieDetail';
 import { MovieActor } from '../components/movie-detail/MovieActor';
 
 const Main = styled.div``;
-const Content = styled.div`
-    padding: 0 20px;
-`;
+
 const MoreLabel = styled.p`
     border-top: 2px solid white;
     border-bottom: 2px solid white;
@@ -24,17 +23,19 @@ const MoreLabel = styled.p`
 
 const MoreMovieContainer = styled.div`
     margin-bottom: 30px;
-`;
+`
 
 const MovieDetailPage = () => {
-    const { id } = useParams();
+    const session = useContext(SessionContext);
+
+    const {id} = useParams();
     const [data, setData] = useState({
-        cover_url: 'none',
-        description: 'rendering',
-        genres: [],
-        movies: [],
-        scope: 'rendering',
-        title: 'rendering',
+        'cover_url': "none",
+        'description': "rendering",
+        'genres': [],
+        'movies': [],
+        'scope': "rendering",
+        'title': "rendering"
     });
 
     useEffect(() => {
@@ -44,16 +45,16 @@ const MovieDetailPage = () => {
     const getMovieDetail = async () => {
         try {
             // axios를 사용하여 서버로부터 데이터를 가져옵니다. (예시)
-            const response = await ServerAPI.get('/get-movie-detail/' + id);
+            const response = await ServerAPI.get('/get-movie-detail/' + id + "/" + session['userId']);
 
             // key 값 변경
-            let result = { ...response['data'] };
-            result['movies'] = result['more-like-this'];
-            delete result['more-like-this'];
+            let result = { ...response['data']}
+            result['movies'] = result['more-like-this']
+            delete result['more-like-this']
 
             // 가져온 데이터를 상태에 업데이트합니다.
             // console.log(response['data'])
-            setData(result);
+            setData(result)
         } catch (error) {
             console.error('Error fetching data:', error);
         }
@@ -80,6 +81,6 @@ const MovieDetailPage = () => {
             </Content>
         </Main>
     );
-};
+}
 
 export { MovieDetailPage };

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import noProfileImg from '../../assets/no_profile_2.png';
 const PosterContainer = styled.div`
     display: flex;
     flex-direction: column;
@@ -68,10 +68,12 @@ const ActorName = styled.div`
 `;
 
 function MovieActorPoster({ profile_url, name, cast_character }) {
+    const imageUrl = profile_url ? profile_url : noProfileImg;
+    console.log('imageUrl:', imageUrl);
     return (
         <PosterContainer>
             <MoviePosterContainer>
-                <MoviePosterImg src={profile_url} alt={name} />
+                <MoviePosterImg src={imageUrl} alt={name} />
                 <Overlay className="overlay">
                     <Title>{cast_character}</Title>
                 </Overlay>

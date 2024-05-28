@@ -52,7 +52,7 @@ const MovieActor = ({ data }) => {
                         <SwiperSlide key={index}>
                             <MovieItem>
                                 <MovieActorPoster
-                                    profile_url={data['profile_path']}
+                                    profile_url={data['profile_url']}
                                     name={data['name']}
                                     cast_character={data['character']}
                                 />

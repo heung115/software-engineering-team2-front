@@ -1,11 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom';
+import noProfileImg from '../../assets/no_profile_2.png';
+const PosterContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+`;
 
 const MoviePosterContainer = styled.div`
     position: relative;
     width: 100%;
-    height: 100%;
+    height: 90%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -51,26 +59,28 @@ const Title = styled.p`
     font-size: 1em;
 `;
 
-const Rating = styled.div`
+const ActorName = styled.div`
     margin-top: 0.5em;
-    font-size: 1.2em;
+    font-size: 2em;
+    text-align: center;
+    width: 100%;
+    color: white;
 `;
 
-function MovieTag({ poster_url, title, scope, id }) {
-    const navigate = useNavigate();
-
-    const handleMovieClick = () => {
-        navigate(`/movie-detail/${id}`);
-    };
+function MovieActorPoster({ profile_url, name, cast_character }) {
+    const imageUrl = profile_url ? profile_url : noProfileImg;
+    console.log('imageUrl:', imageUrl);
     return (
-        <MoviePosterContainer onClick={handleMovieClick}>
-            <MoviePosterImg src={poster_url} alt={title} />
-            <Overlay className="overlay">
-                <Title>{title}</Title>
-                <Rating>★ {scope}</Rating>
-            </Overlay>
-        </MoviePosterContainer>
+        <PosterContainer>
+            <MoviePosterContainer>
+                <MoviePosterImg src={imageUrl} alt={name} />
+                <Overlay className="overlay">
+                    <Title>{cast_character}</Title>
+                </Overlay>
+            </MoviePosterContainer>
+            <ActorName>{name}</ActorName>
+        </PosterContainer>
     );
 }
 
-export { MovieTag };
+export { MovieActorPoster };

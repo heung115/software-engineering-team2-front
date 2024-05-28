@@ -5,28 +5,25 @@ export const SessionContext = createContext(null);
 
 const SessionProvider = ({ children }) => {
     const [session, setSession] = useState({
-        'isLogin': false,
-        'userId': "no-id",
-        'isSelect': true
+        isLogin: false,
+        userId: 'no-id',
     });
 
     useEffect(() => {
         const subscription = supabase.auth.onAuthStateChange(
             (event, session) => {
-                console.log(session)
+                console.log(session);
                 try {
                     if (event === 'SIGNED_OUT') {
                         setSession({
-                            'isLogin': false,
-                            'userId': "no-id",
-                            'isSelect': true
+                            isLogin: false,
+                            userId: 'no-id',
                         });
                     } else if (session) {
                         setSession({
-                            'isLogin': true,
-                            'userId': session.user.id,
-                            'isSelect': false
-                        })
+                            isLogin: true,
+                            userId: session.user.id,
+                        });
                     }
                 } catch (error) {
                     console.error('Error handling auth state change', error);
@@ -38,6 +35,8 @@ const SessionProvider = ({ children }) => {
             // subscription.unsubscribe();
         };
     }, []);
+
+    
 
     return (
         <SessionContext.Provider value={session}>

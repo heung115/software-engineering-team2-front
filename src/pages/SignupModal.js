@@ -5,16 +5,19 @@ import useSignup from '../hooks/useSignup';
 import { SignUpForm } from '../components/sign-up-modal/SignUpForm';
 
 const SignUpContainer = styled.div`
-    width: 450px;
+    width: 470px;
     height: auto;
-    margin: 0 auto;
+    margin: 90px 20px;
+    padding: 20px 0px;
     border: 1px solid black;
     border-radius: 5px;
+    background-color: white;
 `;
 
 const SignUpTitle = styled.h2`
     text-align: center;
-    margin-bottom: 30px;
+    margin-top: 20px;
+    margin-bottom: 60px;
     font-weigth: bolder;
 `;
 
@@ -30,14 +33,17 @@ const SignUpModal = ({ closeMe }) => {
 
         if (validateForm(email, password, confirmPassword, setErrors)) {
             // signup(email, password, closeMe);
-            const res = await signup({email: email, password: password, onSuccess: closeMe})
+            const res = await signup({
+                email: email,
+                password: password,
+                onSuccess: closeMe,
+            });
 
             if (res) {
-                alert("Signup successful!");
+                alert('Signup successful!');
             } else {
-                alert("This is a duplicate ID.");
+                alert('This is a duplicate ID.');
             }
-
         }
     };
 

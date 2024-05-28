@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { MainPage } from './pages/MainPage';
+import { SearchPage } from './pages/SearchPage';
+import NoDataPage from './pages/Nodata';
 import './App.css';
-
+import { MovieDetailPage } from './pages/MovieDetailPage';
+import { Routes, Route } from 'react-router-dom';
+import Mypage from './pages/Mypage';
 const App = () => {
     const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
     const [isSignupModalOpen, setIsSignupModalOpen] = useState(false);
@@ -12,21 +16,13 @@ const App = () => {
     const closeSignupModal = () => setIsSignupModalOpen(false);
     return (
         <div className="App">
-            {/* <h1>Supabase Auth Example</h1>
-            <UserProfile />
-            <br></br>
-            <div className="button-container">
-                <button onClick={openLoginModal}>Login</button>
-                <button onClick={openSignupModal}>Sign Up</button>
-            </div>
-            <Modal isOpen={isLoginModalOpen} onClose={closeLoginModal}>
-                <Login />
-            </Modal>
-            <Modal isOpen={isSignupModalOpen} onClose={closeSignupModal}>
-                <SignupForm closeModal={closeSignupModal} />
-            </Modal> */}
-            {/* <HeaderTag /> */}
-            <MainPage />
+            <Routes>
+                <Route path="/" element={<MainPage />} />
+                <Route path="/movie-detail/:id" element={<MovieDetailPage />} />
+                <Route path="/search" element={<SearchPage />} />
+                <Route path="/mypage" element={<Mypage />} />
+                <Route path="/nodata" element={<NoDataPage />} />
+            </Routes>
         </div>
     );
 };

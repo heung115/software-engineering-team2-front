@@ -1,28 +1,28 @@
-import React, { useRef, useState } from 'react';
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { MovieTag } from './MovieTag';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { MovieActorPoster } from './MovieActorPoster';
 
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
-// import required modules
 import { FreeMode, Pagination, Mousewheel } from 'swiper/modules';
 
 const MovieItem = styled.div`
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: 80%;
 `;
-
-const MoveList = ({ data, page }) => {
+const WhiteText = styled.div`
+    color: white;
+`;
+const MovieActor = ({ data }) => {
     return (
         <div>
             <Swiper
                 slidesPerView={6}
-                spaceBetween={30}
+                spaceBetween={0}
                 freeMode={true}
-                mousewheel={true}
+                // mousewheel={true}
                 pagination={{
                     clickable: true,
                 }}
@@ -47,25 +47,26 @@ const MoveList = ({ data, page }) => {
                 modules={[FreeMode, Pagination, Mousewheel]}
                 className="mySwiper"
             >
-                {'movies' in data ? (
-                    data['movies'].map((movie, index) => (
+                {data && data.length > 0 ? (
+                    data.map((data, index) => (
                         <SwiperSlide key={index}>
                             <MovieItem>
-                                <MovieTag
-                                    poster_url={movie['cover_url']}
-                                    title={movie['title']}
-                                    scope={movie['scope']}
-                                    id={movie['movie_id']}
+                                <MovieActorPoster
+                                    profile_url={data['profile_url']}
+                                    name={data['name']}
+                                    cast_character={data['character']}
                                 />
                             </MovieItem>
                         </SwiperSlide>
                     ))
                 ) : (
-                    <SwiperSlide>Rendering...</SwiperSlide>
+                    <SwiperSlide>
+                        <WhiteText>NO data...</WhiteText>
+                    </SwiperSlide>
                 )}
             </Swiper>
         </div>
     );
 };
 
-export default MoveList;
+export { MovieActor };

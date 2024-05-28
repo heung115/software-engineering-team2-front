@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const InputGroup = styled.div`
     position: relative;
@@ -24,13 +24,13 @@ const InputTag = styled.input`
     z-index: 1111;
     &:focus,
     &:valid {
-        border: 4px solid #0056b3;;
+        border: 4px solid #0056b3;
     }
 `;
 
 const InputLabel = styled.label`
     position: absolute;
-    font-size: 1.6em;
+    font-size: 1.2em;
     color: #6a6a6a;
     padding: 0 25px;
     margin: 0 20px;

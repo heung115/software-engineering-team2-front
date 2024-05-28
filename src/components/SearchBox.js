@@ -21,23 +21,25 @@ import { FreeMode, Pagination, Mousewheel } from 'swiper/modules';
 const MovieGridItem = styled.div`
     height: 300px;
     width: 200px;
-    border: 1px solid white;
+    border: 1px solid rgb(255,255,255,0.8);
 
     &:hover {
-        height: 309px;
-        width: 206px;
-        border: 1.5px solid white;
+        height: 318px;
+        width: 212px;
+        border: 2px solid rgb(255,255,255,1);
+        transition: all 0s ease;
     }
     transition: all 0.5s ease;
 `;
 
 const DivStyle = styled.div`
-    margin-top: ${(prop)=>(prop.isFocused?'80px':'150px')};
+    margin-top: ${(prop)=>(prop.isFocused?'90px':'150px')};
     transition: all 1s ease;
 `;
 
 const PosterDivStyle = styled.div`
-    margin-top: 100px;
+    align-items: center;
+    margin-top: 80px;
     margin-left: 200px; 
     margin-right: 200px; 
     height: 600px;
@@ -46,17 +48,23 @@ const PosterDivStyle = styled.div`
 const SearchBoxStyle = styled.input`
     height: 40px;
     width: 400px;    
+    opacity: 0.5;
 `;
 
 const MainLogoStyle = styled.img`
-    height: ${(prop)=>(prop.isFocused?'120px':'160px')};
+
+    opacity:  ${(prop)=>(prop.isFocused? 0.9:1)};
+    height: ${(prop)=>(prop.isFocused?'140px':'160px')};
     margin-bottom: 40px;
-    align-items: center;
     transition: all 1s ease;
     cursor: pointer;
     
 `;
 const TextStyle = styled.p`
+    opacity: 0.9;
+    margin-top: 80px;
+    margin-left: 200px; 
+    margin-right: 200px; 
     visibility: ${(prop)=>(prop.isFocused?'visible':'hidden')};;
     border-top: 2px solid white;
     border-bottom: 2px solid white;
@@ -67,13 +75,15 @@ const TextStyle = styled.p`
     font-size: 1em;
 `;
 
-const MoveList = ({ data,}) => {
+const MoveList = ({ data}) => {
     console.log("data:",data);
+    //const limitedMovies = data.slice(0, 7);
+
     return (
         <div>
             <Swiper
-                slidesPerView={6}
-                spaceBetween={30}
+                slidesPerView={7}
+                spaceBetween={200}
                 freeMode={true}
                 mousewheel={true}
                 pagination={{
@@ -83,16 +93,19 @@ const MoveList = ({ data,}) => {
                 className="mySwiper"
             >   
                 {
-                    data.map((movie, index) => (
-                        <SwiperSlide key={index}>
-                            <MovieGridItem>
-                                <MovieTag
-                                    poster_url={movie['cover_url']}
-                                    title={movie['title']}
-                                    scope={movie['scope']}
-                                />
-                            </MovieGridItem>
-                        </SwiperSlide>
+                    // limitedMovies.map((movie, index) => (
+                        data.map((movie, index) => (                        
+                            <SwiperSlide key={index}>
+                            
+                                <MovieGridItem>
+                                    <MovieTag
+                                        poster_url={movie['cover_url']}
+                                        title={movie['title']}
+                                        scope={movie['scope']}
+                                    />
+                                </MovieGridItem>
+                            
+                            </SwiperSlide>
                     ))
                 }
             </Swiper>
@@ -125,19 +138,24 @@ function SearchBox() {
     
     const debounceValue = useDebounce(search);
     const navigate = useNavigate();
-    const click = () => {
+    const gotoMain = () => {
         navigate('/');
     };
+
+    // const gotoMovieDetail = () => {
+    //     navigate('/');
+    // };
 
     useEffect(() => {
         const getMovies = async () => {
             try {
                 const trimmedSearch = search.replace(/\s+/g, '').toLowerCase();
-                // const response = await ServerAPI.get('/search/' + trimmedSearch);
-                const response = await ServerAPI.get('/get-movie-list/action' );
-                const res = response.data.movies;
-                console.log('title : ', res);
-                
+                const response = await ServerAPI.get('/search/' + trimmedSearch);
+                //const response = await ServerAPI.get('/get-movie-list/action' );
+                const res = response.data;
+                console.log('res : ', response);
+                console.log('res.data : ', response);
+                console.log('query : ', trimmedSearch);
                 setMovieResult(res)
             } catch (error) {
                 console.error('Error fetching data:', error);
@@ -156,7 +174,7 @@ function SearchBox() {
             <MainLogoStyle 
                 isFocused={isFocused}
                 src={mainLogo}
-                onClick={click}
+                onClick={gotoMain}
             /><br/>
             <SearchBoxStyle
                 type="search"
@@ -165,10 +183,14 @@ function SearchBox() {
                 //onFocus={() => setIsFocused(true)}
                 //onBlur={() => setIsFocused(false)}
             />
-                <TextStyle isFocused={isFocused}>
-                    RESULT
-                </TextStyle>
-            {search && movieResult && <MoveList data={movieResult} />}
+            <TextStyle isFocused={isFocused}>
+                RESULT
+            </TextStyle>
+
+            <PosterDivStyle>
+                {search && movieResult && <MoveList data={movieResult} />}
+            </PosterDivStyle>
+
         </DivStyle>
     );
 }

@@ -16,6 +16,28 @@ const Grid = styled.div`
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); // 은은한 왼쪽 그림자 효과
     overflow-y: auto;
+    overflow-y: scroll; /* 세로 스크롤바 활성화 */
+
+    /* 웹킷 기반 브라우저에서의 스크롤바 스타일 */
+    &::-webkit-scrollbar {
+        width: 12px; /* 스크롤바 너비 */
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent; /* 투명 배경 */
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.5); /* 반투명 핸들 */
+        border-radius: 6px; /* 둥근 모서리 */
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: rgba(0, 0, 0, 0.7);
+    }
+    &:not(:hover) {
+        background: rgba(0, 0, 0, 0.1);
+    }
 `;
 
 const EmptyGridItem = styled.div`

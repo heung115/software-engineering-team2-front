@@ -2,13 +2,12 @@ import useDebounce from '../hooks/useDebounce';
 import ServerAPI from '../services/ServerAPI';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import mainLogo from '../assets/logo3.png'
+import mainLogo from '../assets/logo3.png';
 import { MovieTag } from './main-content/MovieTag';
 //import MoveList from './main-content/MoveList';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useNavigate } from 'react-router-dom';
-
 
 // Import Swiper styles
 import 'swiper/css';
@@ -16,7 +15,6 @@ import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
 // import required modules
 import { FreeMode, Pagination, Mousewheel } from 'swiper/modules';
-
 
 const MovieGridItem = styled.div`
     height: 300px;
@@ -58,7 +56,6 @@ const MainLogoStyle = styled.img`
     margin-bottom: 40px;
     transition: all 1s ease;
     cursor: pointer;
-    
 `;
 const TextStyle = styled.p`
     opacity: 0.9;
@@ -78,7 +75,6 @@ const TextStyle = styled.p`
 const MoveList = ({ data}) => {
     console.log("data:",data);
     //const limitedMovies = data.slice(0, 7);
-
     return (
         <div>
             <Swiper
@@ -135,7 +131,7 @@ function SearchBox() {
     const [search, setSearch] = useState('');
     const [movieResult, setMovieResult] = useState([]);
     const [isFocused, setIsFocused] = useState(false);
-    
+
     const debounceValue = useDebounce(search);
     const navigate = useNavigate();
     const gotoMain = () => {
@@ -162,16 +158,16 @@ function SearchBox() {
             }
         };
         if (debounceValue) {
-            setIsFocused(true); 
+            setIsFocused(true);
             getMovies();
         } else {
-            setIsFocused(false); 
+            setIsFocused(false);
         }
     }, [debounceValue]);
 
     return (
         <DivStyle isFocused={isFocused}>
-            <MainLogoStyle 
+            <MainLogoStyle
                 isFocused={isFocused}
                 src={mainLogo}
                 onClick={gotoMain}
@@ -190,7 +186,6 @@ function SearchBox() {
             <PosterDivStyle>
                 {search && movieResult && <MoveList data={movieResult} />}
             </PosterDivStyle>
-
         </DivStyle>
     );
 }

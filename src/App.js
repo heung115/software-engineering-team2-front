@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { MainPage } from './pages/MainPage';
 import { SearchPage } from './pages/SearchPage';
+import NoDataPage from './pages/Nodata';
 import './App.css';
 import { MovieDetailPage } from './pages/MovieDetailPage';
 import { Routes, Route } from 'react-router-dom';
@@ -20,6 +21,7 @@ const App = () => {
                 <Route path="/movie-detail/:id" element={<MovieDetailPage />} />
                 <Route path="/search" element={<SearchPage />} />
                 <Route path="/mypage" element={<Mypage />} />
+                <Route path="/nodata" element={<NoDataPage />} />
             </Routes>
         </div>
     );
